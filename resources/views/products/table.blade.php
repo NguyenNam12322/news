@@ -390,9 +390,6 @@
 
         $('#gift-product').text(title);
         $('#modal-gift').modal('show');
-
-       
-
     }
 
 

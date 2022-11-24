@@ -33,6 +33,22 @@ class crawlController extends Controller
 {
 
 
+    public function updateLinkCategory()
+    {
+        $data = DB::table('categories')->get();
+
+        foreach ($data as $key => $value) {
+
+            $slug    = convertSlug($value->namecategory);
+            
+            $product = DB::table('categories')->where('id',  $value->id)->update(['link'=>$slug]);
+
+
+        }
+        echo "thanh cong";
+        
+    }
+
     public function updateMetas($value='')
     {
 

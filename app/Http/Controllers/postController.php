@@ -305,9 +305,6 @@ class postController extends AppBaseController
        $post = post::find($id);
 
       
-
-
-
        if($active == 1){
             $post->hight_light =0;
             $post->save();

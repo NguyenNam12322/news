@@ -169,15 +169,20 @@
                             @if(count($cate)>0)
                             @foreach($cate as $value)
 
+                            @if($value != 6)
+
                             <?php 
                                 $namecate = DB::table('categories')->where('id', $value)->first();
-                                $datacate = App\Models\Post::where('category', $value)->take(4)->get();   
-                            ?>   
+
+                                $datacate = App\Models\Post::where('category', $value)->where('active', 1)->where('hight_light', 1)->take(4)->get();   
+                            ?>  
+
+                            @if($datacate->count()>0) 
                             <div class="col-12 col-lg-6">
                                 <div class="news-group">
                                     <h2><a style="color: #c00000;text-transform: uppercase;font-size: 18px;"
-                                        href="lam-dep"
-                                        title="Làm đẹp">{{ @$namecate->namecategory  }}</a></h2>
+                                        href="{{ route('details', $namecate->link) }}"
+                                        title="{{ @$namecate->namecategory  }}">{{ @$namecate->namecategory  }}</a></h2>
                                     <div class=" news">
                                         @if(count($datacate)>0)
                                         @foreach($datacate as $val)
@@ -198,268 +203,55 @@
                                     </div>
                                 </div>
                             </div>
-                           
+                            @endif
+                            
+                            @endif
                             @endforeach
                             @endif
                             
                         </div>
                         
                         <div class=" articles-page-container mt-5">
+
+                            <?php 
+
+                                $data = App\Models\post::where('category',6)->take(6)->get();  
+
+                            ?>  
+
+                            @if($data->count()>0)
+                            @foreach($data as $val)
+
                             <article class="row">
                                 <div class="col-12 col-lg-4">
-                                    <a href="./10-cach-lam-bap-xao-thom-ngon-beo-ngay-don-gian-de-lam.html" title="10 cách làm bắp xào thơm ngon béo ngậy, đơn giản dễ làm"> <img
-                                        src="./wp-content/uploads/2021/10/21/meovatgiadinh-9-cach-lam-bap-xao-thom-ngon-beo-ngay-don-gian-de-lam.jpg" alt="10 cách làm bắp xào thơm ngon béo ngậy, đơn giản dễ làm"
+                                    <a href="./10-cach-lam-bap-xao-thom-ngon-beo-ngay-don-gian-de-lam.html" title="10 cách làm bắp xào thơm ngon béo ngậy, đơn giản dễ làm"> <img src="./wp-content/uploads/2021/10/21/meovatgiadinh-9-cach-lam-bap-xao-thom-ngon-beo-ngay-don-gian-de-lam.jpg" alt="10 cách làm bắp xào thơm ngon béo ngậy, đơn giản dễ làm"
                                         onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
                                 </div>
                                 <div class="col">
-                                    <h2><a href="./10-cach-lam-bap-xao-thom-ngon-beo-ngay-don-gian-de-lam.html"
-                                        title="10 cách làm bắp xào thơm ngon béo ngậy, đơn giản dễ làm">10 cách làm bắp xào thơm ngon béo ngậy, đơn giản dễ làm</a>
+                                    <h2><a href="{{ route('details', $val->link) }}"
+                                        title="{{ $val->title }}">{{  $val->title }}</a>
                                     </h2>
                                     <div class="info">
                                         <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
+                                        <i class="fad fa-user-shield"></i>Mẹo hay cuộc sống </span>
+                                       <!--  <span>
                                             <i class="fad fa-tags"></i>
                                             <ul class="post-categories">
                                                 <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
                                             </ul>
-                                        </span>
+                                        </span> -->
                                     </div>
                                     <div class="desc">
-                                        Cùng tìm hiểu 10 cách làm bắp xào tại nhà đơn giản, thơm ngon béo ngậy với nguyên liệu dễ tìm như mỡ hành, trứng muối, tôm khô...                            
+                                        {!! strip_tags(_substrs($val->content,350))  !!}                   
                                     </div>
                                 </div>
                             </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./nhung-hieu-lam-kinh-dien-ma-nguoi-dung-iphone-thuong-gap.html" title="Những hiểu lầm kinh điển mà người dùng iPhone thường gặp phải"> <img
-                                        src="./wp-content/uploads/2021/01/meovatgiadinh-nhung-hieu-lam-kinh-dien-ma-nguoi-dung-iphone-thuong-gap.jpg" alt="Những hiểu lầm kinh điển mà người dùng iPhone thường gặp phải"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./nhung-hieu-lam-kinh-dien-ma-nguoi-dung-iphone-thuong-gap.html"
-                                        title="Những hiểu lầm kinh điển mà người dùng iPhone thường gặp phải">Những hiểu lầm kinh điển mà người dùng iPhone thường gặp phải</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-cong-nghe" rel="category tag">Mẹo công nghệ</a></li>
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Trong quá trình sử dụng iPhone, chắc chắn ai cũng từng gặp phải những hiểu lầm như trong bài viết này mà nhất là người mới dùng. Mời các bạn cùng theo dõi nhé!                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./meo-khu-mui-am-moc-trong-nha-sau-mua-lu.html" title="Mẹo khử mùi ẩm mốc trong nhà sau mưa lũ"> <img
-                                        src="./wp-content/uploads/2020/12/meovatgiadinh-meo-khu-mui-am-moc-trong-nha-sau-mua-lu.jpg" alt="Mẹo khử mùi ẩm mốc trong nhà sau mưa lũ"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./meo-khu-mui-am-moc-trong-nha-sau-mua-lu.html"
-                                        title="Mẹo khử mùi ẩm mốc trong nhà sau mưa lũ">Mẹo khử mùi ẩm mốc trong nhà sau mưa lũ</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Sau những ngày mưa lũ, căn nhà của bạn trở nên ẩm ướt gây nên các hiện tượng ẩm mốc, không khí có mùi khó chịu làm ảnh hưởng đến sức khỏe của các thành viên trong gia đình bạn.&hellip;                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./2-cach-tu-lam-mi-can-dai-ngon-don-gian-de-thuc-hien-ngay-t.html" title="2 cách tự làm mì căn dai ngon, đơn giản, dễ thực hiện ngay tại nhà"> <img
-                                        src="./wp-content/uploads/2021/01/meovatgiadinh-2-cach-tu-lam-mi-can-dai-ngon-don-gian-de-thuc-hien-ngay-t.jpg" alt="2 cách tự làm mì căn dai ngon, đơn giản, dễ thực hiện ngay tại nhà"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./2-cach-tu-lam-mi-can-dai-ngon-don-gian-de-thuc-hien-ngay-t.html"
-                                        title="2 cách tự làm mì căn dai ngon, đơn giản, dễ thực hiện ngay tại nhà">2 cách tự làm mì căn dai ngon, đơn giản, dễ thực hiện ngay tại nhà</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                                <li><a href="./vao-bep" rel="category tag">Vào bếp</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        M&igrave; căn l&agrave; một loại thực phẩm chay v&ocirc; c&ugrave;ng quen thuộc với nhiều người. Tham khảo ngay b&agrave;i viết để tự l&agrave;m m&oacute;n m&igrave; căn đơn giản tại nh&agrave; v&agrave; một v&agrave;i lưu &yacute; khi sử dụng m&igrave; căn&hellip;                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./cach-su-dung-iphone-ca-ngay-voi-20-pin-cuoi-cung.html" title="iPhone báo pin đỏ, bạn vẫn có thể xài cả ngày với cách sau"> <img
-                                        src="./wp-content/uploads/2021/01/meovatgiadinh-cach-su-dung-iphone-ca-ngay-voi-20-pin-cuoi-cung.jpg" alt="iPhone báo pin đỏ, bạn vẫn có thể xài cả ngày với cách sau"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./cach-su-dung-iphone-ca-ngay-voi-20-pin-cuoi-cung.html"
-                                        title="iPhone báo pin đỏ, bạn vẫn có thể xài cả ngày với cách sau">iPhone báo pin đỏ, bạn vẫn có thể xài cả ngày với cách sau</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-cong-nghe" rel="category tag">Mẹo công nghệ</a></li>
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Mặc dù Apple đã cố gắng tối ưu iOS cũng như các bộ phận trên iPhone tốt hơn, nhưng dường như điều này vẫn không giúp người dùng sử dụng thiết bị trong suốt một ngày mà không cần sạc.&hellip;                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./lon-nguoc-quan-ao-khi-phoi-tuong-tot-nhung-tiem-an-nhieu-nguy-co.html" title="Lộn ngược quần áo khi phơi, tưởng tốt nhưng tiềm ẩn nhiều nguy cơ"> <img
-                                        src="./wp-content/uploads/2020/12/meovatgiadinh-phoi-quan-ao-lon-nguoc-co-that-su-tot.jpg" alt="Lộn ngược quần áo khi phơi, tưởng tốt nhưng tiềm ẩn nhiều nguy cơ"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./lon-nguoc-quan-ao-khi-phoi-tuong-tot-nhung-tiem-an-nhieu-nguy-co.html"
-                                        title="Lộn ngược quần áo khi phơi, tưởng tốt nhưng tiềm ẩn nhiều nguy cơ">Lộn ngược quần áo khi phơi, tưởng tốt nhưng tiềm ẩn nhiều nguy cơ</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Tưởng rằng chuyện phơi quần áo rất đơn giản, nhưng nếu bạn là người có thói quen lộn ngược quần áo khi phơi, thì hãy theo dõi bài viết sau để biết được điều bạn đang làm có thực sự&hellip;                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./vi-sao-aquafina-co-mui-nuoc-dua.html" title="Vì sao Aquafina có mùi nước dừa?"> <img
-                                        src="./wp-content/uploads/2020/12/meovatgiadinh-vi-sao-aquafina-co-mui-nuoc-dua.jpg" alt="Vì sao Aquafina có mùi nước dừa?"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./vi-sao-aquafina-co-mui-nuoc-dua.html"
-                                        title="Vì sao Aquafina có mùi nước dừa?">Vì sao Aquafina có mùi nước dừa?</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Có khi nào bạn uống những chai nước khoáng của Aquafina và nhận ra chai nước bạn đang uống có vị như nước dừa không? Nếu bạn đã từng trái nghiệm cảm giác đó rồi nhưng không hiểu vì sao&hellip;                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./lam-hon-hop-nuoc-ep-co-loi-cho-suc-khoe-bang-may-ep-trai-cay.html" title="Cách làm nước ép hỗn hợp có lợi cho sức khỏe bằng máy ép trái cây"> <img
-                                        src="./wp-content/uploads/2021/01/meovatgiadinh-lam-hon-hop-nuoc-ep-co-loi-cho-suc-khoe-bang-may-ep-trai-cay.jpg" alt="Cách làm nước ép hỗn hợp có lợi cho sức khỏe bằng máy ép trái cây"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./lam-hon-hop-nuoc-ep-co-loi-cho-suc-khoe-bang-may-ep-trai-cay.html"
-                                        title="Cách làm nước ép hỗn hợp có lợi cho sức khỏe bằng máy ép trái cây">Cách làm nước ép hỗn hợp có lợi cho sức khỏe bằng máy ép trái cây</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                                <li><a href="./vao-bep" rel="category tag">Vào bếp</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        M&ugrave;a n&oacute;ng, h&atilde;y tận dụng chiếc m&aacute;y &eacute;p tr&aacute;i c&acirc;y để chế biến nước &eacute;p hỗn hợp vừa giải kh&aacute;t, vừa c&oacute; lợi cho sức khỏe từ c&aacute;c loại hoa quả v&agrave; rau củ tự nhi&ecirc;n.                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./edjing-pro-ung-dung-dj-dang-mien-phi-gioi-han-cho-wp.html" title="Edjing Pro: Ứng dụng chơi DJ chuyên nghiệp đang miễn phí có giới hạn cho WP"> <img
-                                        src="./wp-content/uploads/2021/01/meovatgiadinh-edjing-pro-ung-dung-dj-dang-mien-phi-gioi-han-cho-wp.jpg" alt="Edjing Pro: Ứng dụng chơi DJ chuyên nghiệp đang miễn phí có giới hạn cho WP"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./edjing-pro-ung-dung-dj-dang-mien-phi-gioi-han-cho-wp.html"
-                                        title="Edjing Pro: Ứng dụng chơi DJ chuyên nghiệp đang miễn phí có giới hạn cho WP">Edjing Pro: Ứng dụng chơi DJ chuyên nghiệp đang miễn phí có giới hạn cho WP</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./meo-cong-nghe" rel="category tag">Mẹo công nghệ</a></li>
-                                                <li><a href="./meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Edjing Pro là ứng dụng giúp bạn phối những bài nhạc (mix) với nhau tạo thành những giai điệu sống động, mang cá tính riêng. Tin vui là hiện ứng dụng đang miễn phí có giới hạn cho người dùng&hellip;                            
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row">
-                                <div class="col-12 col-lg-4">
-                                    <a href="./chi-loan-chia-se-cach-lam-thit-heo-cuon-la-lot-chien-nong-hoi-thom-lung.html" title="Chị Loan chia sẻ cách làm thịt heo cuộn lá lốt chiên nóng hổi, thơm lừng"> <img
-                                        src="./wp-content/uploads/2021/01/27/meovatgiadinh-chi-loan-chia-se-cach-lam-thit-heo-cuon-la-lot-chien-nong-hoi-thom-lung.jpg" alt="Chị Loan chia sẻ cách làm thịt heo cuộn lá lốt chiên nóng hổi, thơm lừng"
-                                        onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';"></a>
-                                </div>
-                                <div class="col">
-                                    <h2><a href="./chi-loan-chia-se-cach-lam-thit-heo-cuon-la-lot-chien-nong-hoi-thom-lung.html"
-                                        title="Chị Loan chia sẻ cách làm thịt heo cuộn lá lốt chiên nóng hổi, thơm lừng">Chị Loan chia sẻ cách làm thịt heo cuộn lá lốt chiên nóng hổi, thơm lừng</a>
-                                    </h2>
-                                    <div class="info">
-                                        <span>
-                                        <i class="fad fa-user-shield"></i> Mẹo vặt Gia đình                                </span>
-                                        <span>
-                                            <i class="fad fa-tags"></i>
-                                            <ul class="post-categories">
-                                                <li><a href="./am-thuc/mon-ngon-moi-ngay" rel="category tag">Món ngon mỗi ngày</a></li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="desc">
-                                        Chị Loan chia sẻ đến Mẹo vặt Gia đình cách làm thịt heo cuộn lá lốt thơm lừng, nóng hổi cho cả nhà ngày cuối tuần, cùng theo dõi công thức của chị Loan nhé.                            
-                                    </div>
-                                </div>
-                            </article>
+                            @endforeach
+                            @endif
+
+
+
+                           
                             <a href="./meo-hay" class="more ml-auto mr-auto">Xem thêm mẹo vặt hay <i
                                 class="far fa-long-arrow-right"></i></a>
                         </div>

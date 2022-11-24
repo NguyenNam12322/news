@@ -20,6 +20,8 @@ Route::get('/ckfinder.html', 'mainController@ckfinder')->middleware('auth');
 
 Route::get('/lien-he', 'mainController@lienhe');
 
+Route::get('/crawl', 'crawlController@updateLinkCategory');
+
 
 Route::get('/', 'Frontend\indexController@index')->middleware('throttle:60')->name('homeFe');
 
