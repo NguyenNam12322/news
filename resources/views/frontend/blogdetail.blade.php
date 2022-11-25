@@ -64,22 +64,31 @@
                     </div>
                   
                     <hr>
+
+                    <?php 
+
+                        $news = App\Models\post::where('active', 1)->inRandomOrder()->take(3)->get();
+                    ?>
                     <div class="news-group mt-5">
                         <h2>Có thể bạn sẽ quan tâm</h2>
                         <div class="news row">
-
-                            
-                            <article class="col-12 col-lg-6">
-                                <a href="/cung-ong-cong-ong-tao-nen-dung-ca-chep-that-hay-giay.html" title="Cúng ông Công ông Táo nên dùng cá chép thật hay giấy?">
-                                <img src="/wp-content/uploads/2020/12/meovatgiadinh-cung-ong-cong-ong-tao-nen-dung-ca-chep-that-hay-giay.jpg" alt="Cúng ông Công ông Táo nên dùng cá chép thật hay giấy?"
-                                    onError="this.onerror=null;this.src='/wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';" />
+                            @if($news->count()>0)
+                            @foreach($news as $value)
+                            <article>
+                                <a href="{{ route('details', $value->link) }}" title="{{ $value->title }}">
+                                <img src="{{ asset($value->image) }}" alt="{{ $value->title }}" />
                                 </a>
                                 <div class="info">
-                                    <h3><a href="/cung-ong-cong-ong-tao-nen-dung-ca-chep-that-hay-giay.html"
-                                        title="Cúng ông Công ông Táo nên dùng cá chép thật hay giấy?">Cúng ông Công ông Táo nên dùng cá chép thật hay giấy?</a>
+                                    <h3>
+                                        <a href="{{ route('details', $value->link) }}" title="{{ $value->title }}">   
+                                            {{ $value->title }}
+                                        </a>
                                     </h3>
                                 </div>
                             </article>
+
+                            @endforeach
+                            @endif
                           
                         </div>
                     </div>
