@@ -14,6 +14,9 @@ use App\Models\groupProduct;
 
 use App\Models\product;
 
+use App\Models\post;
+
+
 use App\Models\Order;
 
 use App\Models\filter;
@@ -414,6 +417,22 @@ class AjaxController extends Controller
 
         }
     }
+
+
+
+    public function findUpdatePost(Request $request)
+    {
+
+        if($request->ajax())
+        {
+            $post_id = $request->post_id;
+            $active  = $request->active;
+            $addProduct = post::find($post_id);
+            $addProduct->featured = $active;
+            $addProduct->save();
+        }
+    }
+
 
     public function getProductSeachValueInput(Request $request)
     {

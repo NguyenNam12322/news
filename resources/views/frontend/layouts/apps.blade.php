@@ -1,224 +1,188 @@
+
 <!DOCTYPE html>
-<html lang="vi-VN">
+<html lang="vi">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('images/logo.jpg') }}" rel="shortcut icon" type="image/x-icon">
-        @if(isset($meta))
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="./wp-content/themes/meovatgiadinh/assets/images/favicon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/images/appleIcon.png">
+        <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/app.css" />
+        <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/style.css" />
+        <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/responsive.css" />
+        <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/custom.css" />
+        <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/all.min.css" />
+        
+         @if(isset($meta))
         <title>{{ $meta->meta_title }}</title>
         <meta property="og:description" content="{{ $meta->meta_content }}" /> 
         <meta name="keywords" content="{{ $meta->meta_key_words??'sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến' }}"/>
 
         @else
-        <title> Siêu Thị Tivi - Mua Sắm Tivi Chính Hãng Giá Rẻ Tại Kho</title>
-        <meta name="robots" content="noindex, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta property="og:title" content="Siêu Thị Tivi - Mua Sắm Tivi Chính Hãng Giá Rẻ Tại Kho" />
-        <meta property="og:description" content="Siêu Thị Tivi Chuyên Cung Cấp Và Phân Phối Sản Phẩm Tivi Chính Hãng Sony, LG, SamSung, TCL,... Giá Rẻ Nhất Tại Kho. Dịch Vụ Uy Tín Chuyên Nghiệp." />
-       
+        <title>Mẹo Vặt Gia Đình - Chia sẻ những mẹo vặt gia đình, cuộc sống hay nhất</title>
+      
+        <!-- This site is optimized with the Yoast SEO Premium plugin v14.9 - https://yoast.com/wordpress/plugins/seo/ -->
+        <meta name="description" content="Chia sẻ những MẸO VẶT, kinh nghiệm hay trong cuộc sống, gia đình hàng ngày. Cuộc sống của bạn sẽ trở nên tiện ích và sinh động hơn." />
         @endif
-        <meta name="csrf-param" content="_csrf">
-       <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        @stack('style')
-        <style type="text/css">
-            .btns{
-                border: 0;
-               
-            }
-             nav.navbar a {
-               
-                font-size: 15px;
-            }
-            .merchandising-wrapper{
-                height: 300px;
-            }
-        </style>
+        <meta name="robots" content="noindex, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Mẹo vặt gia đình - Những mẹo vặt gia đình cuộc sống Hay nhất" />
+        <meta property="og:description" content="Chia sẻ những MẸO VẶT trong cuộc sống, gia đình hàng ngày. Cuộc sống của bạn sẽ trở nên tiện ích và sinh động" />
+        <meta property="og:url" content="./" />
+        <meta property="og:site_name" content="Mẹo vặt gia đình" />
+        <meta property="article:publisher" content="https://www.facebook.com/NhungMeoVatGiaDinh" />
+        <meta property="article:modified_time" content="2021-01-21T07:58:53+00:00" />
+        <meta property="og:image" content="./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png" />
+        <meta property="og:image:width" content="1000" />
+        <meta property="og:image:height" content="550" />
+        <meta property="fb:app_id" content="226937295690742" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mẹo vặt gia đình - Những mẹo vặt gia đình cuộc sống Hay nhất" />
+        <meta name="twitter:description" content="Chia sẻ những MẸO VẶT trong cuộc sống, gia đình hàng ngày. Cuộc sống của bạn sẽ trở nên tiện ích và sinh động" />
+        <meta name="twitter:creator" content="@meovat_giadinh" />
+        <meta name="twitter:site" content="@meovat_giadinh" />
+        
+        
+        @stack('style')
+       
+        <style type="text/css">
+            img.wp-smiley,
+            img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+            }
+
+            .news-group .news article.featured .info {
+
+                height: 70px;
+             }   
+        </style>
+        <link rel='stylesheet' id='wp-block-library-css'  href='./wp-includes/css/dist/block-library/style.min.css?ver=5.8.6' type='text/css' media='all' />
+        <link rel='stylesheet' id='wp-pagenavi-css'  href='./wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+        <link rel="https://api.w.org/" href="./wp-json/" />
+        <link rel="alternate" type="application/json" href="./wp-json/wp/v2/pages/2" />
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="./xmlrpc.php?rsd" />
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./wp-includes/wlwmanifest.xml" />
+        <meta name="generator" content="WordPress 5.8.6" />
+        <link rel='shortlink' href='./' />
+        <link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmeovatgiadinh.vn%2F" />
+        <link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmeovatgiadinh.vn%2F&#038;format=xml" />
     </head>
-    <body>
-        <div class="wrap">
-            <style type="text/css">
-                .progressive-media .progressive-media-content {
-                    height: auto !important;
-                }
-            </style>
-            <div class="navbar-fixed-top">
-                <div class="container is-fullhd sm-navigation">
-                    <nav class="navbar" role="navigation" aria-label="main navigation">
-                        <div class="navbar-brand">
-                            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            </a>
-                            <a class="navbar-item" href="/">
-                            <img src="{{ asset('images/logo.jpg')  }}" width="112" height="28">
-                            </a>
-                            <div class="is-hidden-tablet search-mobile">
-                                <form action="{{ route('search-product-frontend') }}" method="get">
-                                    <input type="text" placeholder="Tìm kiếm" name="key" id="s" maxlength="40">
-                                    <button type="button" class="btns" value="Tìm kiếm" >
-                                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 96 96" focusable="false">
-                                            <path d="M40.581 4.09c20.126 0 36.5 16.374 36.5 36.5a36.325 36.325 0 01-7.963 22.733l22.8 22.948-5.674 5.639-22.767-22.913a36.327 36.327 0 01-22.896 8.093c-20.126 0-36.5-16.374-36.5-36.5s16.374-36.5 36.5-36.5zm0 8c-15.715 0-28.5 12.785-28.5 28.5s12.785 28.5 28.5 28.5 28.5-12.785 28.5-28.5-12.785-28.5-28.5-28.5z"></path>
-                                        </svg>
-                                    </button>
-                                </form>
+    <body class="home page-template-default page page-id-2">
+        <div class="header-top">
+            <div class="container text-right">
+               
+                <a title="Liên hệ" href="./lien-he.html">Liên hệ</a>
+            </div>
+        </div>
+        <header class="header-container">
+            <div class="container">
+                <div class="nav-group row">
+                    <div class="col-12 col-lg-2 col-xl-2">
+                        <div class="row">
+                            <div class="logo">
+                                <a href="./"> <img
+                                    src="./wp-content/themes/meovatgiadinh/assets/images/logo.png"
+                                    alt="Mẹo vặt Gia đình" /></a>
                             </div>
-                            <a class="is-hidden-tablet navbar-item" style="margin-left: auto" href="/"><img style="height: 40px;" src="{{ asset('images/logo.jpg')}}">
-                            </a>
+                            <span class="toggle-nav">
+                            <i class="far fa-bars"></i>
+                            </span>
                         </div>
+                    </div>
+                    <div class="col-12 col-lg-10 col-xl-10 col-header">
+                        <ul id="menu-header-menu" class="header-menu">
 
 
-                        <?php 
+                            <!-- <li id="menu-item-18895" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-18895">
+                                <a href="./top-list">Top List</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-25283" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-25283"><a href="./danh-gia">Đánh Giá</a></li>
+                                </ul>
+                            </li> -->
 
-                            $group = App\Models\groupProduct::where('group_product_id', 5)->get()->take(10);
+                            <?php 
+                                $list = DB::table('categories')->select('namecategory', 'link')->take(7)->get();
+                            ?>
+                            @if($list->count())
+                            @foreach($list  as $val)
 
-                             $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
+                            <li id="menu-item-984" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-984"><a href="{{ route('details', $val->link) }}">{{ $val->namecategory }}</a></li>
 
-                            $number_cart = count($cart);
-
-
-                        ?>
-                        <div id="navbarBasicExample" class="navbar-menu">
-                            <div class="navbar-start">
-                                @foreach($group as $val)
-                                <a class="navbar-item" href="{{ route('category-product', $val->link) }}">{{ $val->name }}</a>
-                                @endforeach
-                                <a class="navbar-item" href="{{ route('tins') }}">tin tức</a>
-                            </div>
-                            <div class="navbar-end is-hidden-mobile">
-                                <div class="navbar-item">
-                                    <form action="{{ route('search-product-frontend') }}" method="get">
-                                        <input type="text" placeholder="Tìm kiếm" name="key" id="s" maxlength="40">
-                                        <button type="submit" class="btns" value="Tìm kiếm" >
-                                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 96 96" focusable="false">
-                                                <path d="M40.581 4.09c20.126 0 36.5 16.374 36.5 36.5a36.325 36.325 0 01-7.963 22.733l22.8 22.948-5.674 5.639-22.767-22.913a36.327 36.327 0 01-22.896 8.093c-20.126 0-36.5-16.374-36.5-36.5s16.374-36.5 36.5-36.5zm0 8c-15.715 0-28.5 12.785-28.5 28.5s12.785 28.5 28.5 28.5 28.5-12.785 28.5-28.5-12.785-28.5-28.5-28.5z"></path>
-                                            </svg>
-                                        </button>
-                                    </form>
-                                    <a href="/"><img src="{{ asset('images/logo.jpg') }}"></a>
-                                    <a class="position-relative" href="{{ route('cart-sttv') }}">
-                                    <img src="{{ asset('images/cart-outline.png') }}">
-                                    <span class="badge badge-danger badge-cart">{{ $number_cart }}</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
+                            @endforeach
+                            @endif
+                           
+                        </ul>
+                        <li class="search-container"><span><i class="fal fa-search"></i></span>
+                            <input type="text" class="form-control input-search" placeholder="Tìm kiếm...">
+                            <span class="btnSearch"><i class="fal fa-search"></i></span>
+                        </li>
+                    </div>
                 </div>
             </div>
-            <style>
-            </style>
+        </header>
+        
+        @yield('content')
 
-
-            @yield('content')
-
-            
-        </div>
-        <footer class="footer">
-            <div class="footer">
-                <div class="footer-column container">
-                    <div class="columns">
-                        <div class="footer-column__item column is-one-quarter">
-                            <div class="footer-category">
-                                <h3 class="footer-category__title">Sản Phẩm</h3>
-                                <div class="footer-category__list-wrap">
-                                    <ul class="footer-category__list">
-                                         <?php 
-
-                                            $groups = App\Models\groupProduct::where('parent_id', 17)->get()->take(10);
-                                        ?>
-                                        @foreach($groups as $key => $val)
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="{{ route('category-product', $val->link) }}" title="">{{ $val->name }}</a>
-                                        </li>
-                                        @endforeach
-                                       
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-column__item column is-one-quarter">
-                            <div class="footer-category">
-                                <h3 class="footer-category__title">Về chúng tôi</h3>
-                                <div class="footer-category__list-wrap">
-                                    <ul class="footer-category__list">
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="#" title="">
-                                                Giới thiệu
-                                            
-                                            </a>
-                                        </li>
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="#" title="">
-                                            Chính sách bảo hành
-                                            </a>
-                                        </li>
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="#" title="">
-                                            Chính sách vận chuyển & giao nhận
-                                            </a>
-                                        </li>
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="#" title="">
-                                            Quy định hình thức thanh toán
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-column__item column is-one-quarter">
-                            <div class="footer-category">
-                                <h3 class="footer-category__title">Bạn Cần Hỗ Trợ?</h3>
-                                <div class="footer-category__list-wrap">
-                                    <ul class="footer-category__list">
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="#" aria-label="Liên Hệ" title="">Liên Hệ</a>
-                                        </li>
-                                        <li class="footer-category__item">
-                                            <a class="footer-category__link" href="#" title="">Hỗ Trợ Kỹ
-                                            thuật</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-column__item column is-one-quarter">
-                            <div class="footer-category">
-                                <h3 class="footer-category__title">Hotline</h3>
-                                <p>0912 326 577</p>
-                            </div>
-                        </div>
+        <footer class="footer-container">
+            <div class="container">
+                <div class="row nav-group">
+                    <div class="col-12 col-lg address footer-col-item">
+                        <a class="logo" href="./" title="Mẹo vặt Gia đình">
+                        <img src="./wp-content/themes/meovatgiadinh/assets/images/logo.png" alt="Mẹo vặt Gia đình"
+                            title="Mẹo vặt Gia đình" />
+                        </a>
+                        <p>Chia sẻ những kinh nghiệm hay trong cuộc sống.</p>
+                        <a href="./lien-he.html">Liên hệ với chúng tôi.</a>
                     </div>
+                    <div class="col-12 col-lg-6 footer-col-item mt-3 text-center text-lg-right">
+                        <a href="https://daiphatcoffee.com/" target="_blank" title="Cà phê sạch, rang xay nguyên chất Đại Phát">
+                        <img style="max-width: 100%; border-radius: 5px;"
+                            src="./wp-content/themes/meovatgiadinh/assets/images/daiphatcoffee.png"
+                            alt="Cà phê sạch, rang xay nguyên chất Đại Phát" />
+                        </a>
+                    </div>
+                    </ul>
                 </div>
-                <div class="footer-bottom container">
-                    <div class="footer-copyright-wrap">
-                        <div class="footer-copyright-align">
-                            <p class="footer-copyright">©2022Siêu thị tivi </p>
-                            <div class="footer-legal">
-                            </div>
+                <div class="row">
+                    
+                    <div class="copyright-group">
+                        <div class="left">
+                            <span>Copyright ©
+                            2021 Mẹo vặt Gia đình. All Rights Reserved.</span>
                         </div>
-                      <!--   <div class="footer-local-logo">
-                            <div class="footer-local-logo--wrap">
-                                <div class="footer-local-logo__item">
-                                    <a class="footer-mark__link" href="https://www.online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=14561" target="_blank">
-                                        
-                                    </a>
-                                </div>
-                            </div>
-                        </div> -->
+                        <div class="right">
+                            <ul id="menu-footer-menu-04" class="">
+                                <li id="menu-item-2745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2745"><a href="./gioi-thieu.html">Giới thiệu</a></li>
+                                <li id="menu-item-18967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-18967"><a href="./chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                                <li id="menu-item-25625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25625"><a href="./lien-he.html">Liên hệ</a></li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </footer>
-        <a class="fab show" title="Go to Top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
-        <img class="fab__icon" alt="" src="{{ asset('images/arrow-up-circle-outline.svg') }}">
-        </a>
-
-        @stack('js')
-
-        
+        <p id="toTop"><i class="fal fa-long-arrow-up"></i></p>
+        <script src="./wp-content/themes/meovatgiadinh/assets/scripts/jquery.min.js"></script>
+        <script src="./wp-content/themes/meovatgiadinh/assets/scripts/bootstrap.min.js"></script>
+        <script src="./wp-content/themes/meovatgiadinh/assets/scripts/jquery.validate.min.js"></script>
+        <script src="./wp-content/themes/meovatgiadinh/assets/scripts/main.min.js"></script>
+        <div id="fb-root"></div>
+       
     </body>
+    <script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=5.8.6' id='wp-embed-js'></script>
 </html>
+
+
+
+

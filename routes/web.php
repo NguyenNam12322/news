@@ -14,7 +14,7 @@
 
 Route::get('/tin-tuc', 'Frontend\blogController@index');
 
-Route::get('/', 'Frontend\indexController@index');
+Route::get('/', 'Frontend\indexController@index')->name('home');
 
 Route::get('/ckfinder.html', 'mainController@ckfinder')->middleware('auth');
 
@@ -270,6 +270,10 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
     
 
     Route::post('add-promotion', 'AjaxController@add_promotion')->name('add-promotion');
+    
+
+    Route::post('update-post-featured', 'AjaxController@findUpdatePost')->name('update-featured');
+
 
     Route::post('add-group-gift', 'AjaxController@add_group_promotion')->name('add-group-gift');
 

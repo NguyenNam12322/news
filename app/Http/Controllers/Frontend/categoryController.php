@@ -231,14 +231,14 @@ class categoryController extends Controller
 
 
         if(empty($findID)){
+
+
             return $this->blogDetailView($slug);
         }
         else{
 
             if(!empty($_GET['filter'])){
                 $data = new filterController();
-
-
                 $data = $data->filter();
 
             }
@@ -415,44 +415,20 @@ class categoryController extends Controller
     {
         $link = trim($slug);
 
-        $data = post::where('link', '/'.$link.'/')->first();
+        $data = post::where('link', $link)->first();
 
-        
         if(empty($data)){
+
             return $this->categoriesBlog($slug);
 
             die();
 
-            
         }
-
-        // $category = category::find($data->category);
-
-
-        // $related_news = post::where('category', $data->category)->where('active', 1)->select('title', 'link', 'id')->get();
-
-        // $name_cate = $category->namecategory;
 
         $meta = metaSeo::find($data->Meta_id);
 
-        // đếm số lượt view
-
-        // $sessionKey = 'post_' . $data->id;
-
-        // $sessionView = Session::get($sessionKey);
-
-        // $post_view = DB::table('posts')->where('id', $data->id);
-
-        // if (!$sessionView) { //nếu chưa có session
-
-        //     Session::put($sessionKey, 1); //set giá trị cho session
-
-        //     $post_view->increment('views', 1);
-
-        // }
-
-
-        echo view('frontend.blogdetail',compact(  'meta', 'data'));
+       
+        echo view('frontend.blogdetail',compact('meta', 'data'));
 
         die();
     }
@@ -461,28 +437,27 @@ class categoryController extends Controller
     {
         $link = trim($slug);
 
+    
         $datas = category::where('link', $link)->first();
 
-     
         if(empty($datas)){
+
             abort('404');
         }
+
         $name_cates_cate = '';
         
         if($datas->id!=5){
 
-             $name_cates_cate = $datas->namecategory;
+            $name_cates_cate = $datas->namecategory;
 
         }
 
         $data = post::where('category', $datas->id)->orderBy('date_post','desc')->orderBy('date_post','desc')->paginate(10);
 
-      
         echo view('frontend.blog', compact('data','name_cates_cate'));
 
         die();
-
-
 
     }
 

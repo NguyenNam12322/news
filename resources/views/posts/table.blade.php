@@ -71,6 +71,7 @@
 
         <th>Hiển thị</th>
         <th>Show ra home</th>
+        <th>Bài viết nổi bật</th>
 
         <th>người dùng</th>
         <th colspan="3">Action</th>
@@ -86,15 +87,17 @@
                 <td><img src="{{ url($post->image) }}" style="width:200px"></td>
             <td>{{ strip_tags($post->title) }}</td>
             <td>{{ @$new_category[$post->category] }}</td>
-
-     
-
-             <td>{{ @$post->date_post }}</td>  
+            <td>{{ @$post->date_post }}</td>  
 
             <td><a href="javascript:voi(0)" class="active-post" onclick="add_active('{{ $post->id }}','{{ $post->active }}')">{!! $post->active ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>   
              
-             <td><a href="javascript:void(0)" class="hight-light-post"  onclick="add_hight_light('{{ $post->id }}','{{ $post->hight_light }}')" data-id="{{ $post->id }}">{!! $post->hight_light ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>
-             <td>{{ App\User::find($post->id_user)->name??'' }} </td>
+            <td><a href="javascript:void(0)" class="hight-light-post"  onclick="add_hight_light('{{ $post->id }}','{{ $post->hight_light }}')" data-id="{{ $post->id }}">{!! $post->hight_light ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>
+            <td>
+                <input type="checkbox" id="featured{{ $post->id }}" name="hots"  onclick='featured({{ $post->id }});' {{ $post->featured==1?'checked':'' }}>
+            </td>
+            
+                
+            <td>{{ App\User::find($post->id_user)->name??'' }} </td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -158,5 +161,57 @@
             }
         });
     }
+
+
+
+    function featured(postId) {
+
+         var checked = $('#featured'+postId).is(':checked'); 
+
+         var active = 0;
+
+       
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        if(checked == true){
+
+            active = 1;
+
+            $.ajax({
+               
+                type: 'POST',
+                url: "{{ route('update-featured') }}",
+                data: {
+                    post_id: postId,
+                    active:active,
+                       
+                },
+                success: function(result){
+                    console.log(result);
+                }
+            });
+        }    
+        else{
+            $.ajax({
+               
+                type: 'POST',
+                url: "{{ route('update-featured') }}",
+                data: {
+                    post_id: postId,
+                    active:active,
+                       
+                },
+                success: function(result){
+                    console.log(result);
+                }
+            });
+        }   
+    }
+
 
 </script>
