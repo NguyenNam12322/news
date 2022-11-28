@@ -15,17 +15,22 @@
         </div>
     </div>
 </div>
+
+<?php 
+    $cate = App\Models\category::select('namecategory', 'link')->where('id', $data->category)->first();
+   
+?>
 <div class="breadcrumb-container">
     <div class="container">
         <div class="row">
             <!-- Breadcrumb NavXT 6.6.0 -->
             <span property="itemListElement" typeof="ListItem">
-                <a property="item" typeof="WebPage" title="Go to Mẹo vặt gia đình." href="https://meovatgiadinh.vn" class="home" ><span property="name">Trang chủ</span></a>
+                <a property="item" typeof="WebPage" title="Go to Mẹo vặt gia đình." href="/" class="home" ><span property="name">Trang chủ</span></a>
                 <meta property="position" content="1">
             </span>
             &nbsp;&nbsp; <i class="fal fa-angle-right"></i> &nbsp;&nbsp;
             <span property="itemListElement" typeof="ListItem">
-                <a property="item" typeof="WebPage" title="Go to the Làm đẹp category archives." href="/lam-dep" class="taxonomy category" ><span property="name">Làm đẹp</span></a>
+                <a property="item" typeof="WebPage" title="Go to the Làm đẹp category archives." href="{{ route('details', $cate->link) }}" class="taxonomy category" ><span property="name">{{ $cate->namecategory }}</span></a>
                 <meta property="position" content="2">
             </span>
             &nbsp;&nbsp; <i class="fal fa-angle-right"></i> &nbsp;&nbsp;
@@ -45,13 +50,13 @@
                 <div class="col-12 col-lg-8">
                     <h1 style="text-align: left;">{{ $data->title }}</h1>
                     <div class="info  mt-4">
-                        <span>
+                        <!-- <span>
                             <i class="fad fa-folders"></i>
                             <ul class="post-categories">
                                 <li><a href="/lam-dep" rel="category tag">Làm đẹp</a></li>
                                 <li><a href="/meo-hay" rel="category tag">Mẹo hay cuộc sống</a></li>
                             </ul>
-                        </span>
+                        </span> -->
                     </div>
                     <div class="content mt-2">
                         
