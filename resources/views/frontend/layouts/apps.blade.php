@@ -111,13 +111,13 @@
                             </li> -->
 
                             <?php 
-                                $list = DB::table('categories')->select('namecategory', 'link')->take(7)->get();
+                                $list = DB::table('categories')->select('namecategory', 'link', 'id')->take(7)->get();
                             ?>
                             @if($list->count())
                             @foreach($list  as $val)
-
+                            @if($val->id!=5)
                             <li id="menu-item-984" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-984"><a href="{{ route('details', $val->link) }}">{{ $val->namecategory }}</a></li>
-
+                            @endif
                             @endforeach
                             @endif
                            
