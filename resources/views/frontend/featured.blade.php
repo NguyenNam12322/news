@@ -1,9 +1,11 @@
 <div class="news">
     <?php 
-        $featured = App\Models\post::where('active', 1)->where('featured', 1)->take(8)->get();
+        $featured = App\Models\post::where('active', 1)->where('featured', 1)->orderBy('id', 'asc')->take(8)->get();
     ?>
     @if($featured->count()>0)
-    @foreach($featured as $value)
+    @foreach($featured as $key => $value)
+
+   
     <article>
         <a href="{{ route('details', $value->link) }}" title="{{ $value->title }}">
         <img src="{{ asset($value->image) }}" alt="{{ $value->title }}" />
@@ -16,6 +18,7 @@
             </h3>
         </div>
     </article>
+   
     @endforeach
     @endif
 </div>

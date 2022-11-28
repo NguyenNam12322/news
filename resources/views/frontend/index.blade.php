@@ -10,20 +10,33 @@
                         <h1 class="mt-2 mb-4" style="font-size: 15px;color: #c00000;">Mẹo vặt Gia đình - Nơi chia sẻ
                             những bí quyết, mẹo hay trong cuộc sống
                         </h1>
+
+
+                        <?php 
+                            $featured = App\Models\post::where('active', 1)->where('featured', 1)->orderBy('id', 'asc')->take(1)->get();
+                        ?>
+                        @if($featured->count()>0)
+                        @foreach($featured as $key => $value)
+
+                        
                         <article class="featured featured-main">
-                            <a href="./da-lao-hoa-nho-nhung-luu-y-nay-de-lua-chon-sua-rua-mat-phu-hop.html" title="Da lão hóa nhớ những lưu ý này để lựa chọn sữa rửa mặt phù hợp">
-                            <img src="./wp-content/uploads/2022/11/21/meovatgiadinh-da-lao-hoa-nho-nhung-luu-y-nay-de-lua-chon-sua-rua-mat-phu-hop-1192093.jpg" alt="Da lão hóa nhớ những lưu ý này để lựa chọn sữa rửa mặt phù hợp"
+                            <a href="{{ route('details', $value->link) }}" title="{{ $value->title }}">
+                            <img src="{{ asset($value->image) }}" alt="{{ $value->title }}"
                                 onError="this.onerror=null;this.src='./wp-content/themes/meovatgiadinh/assets/images/no-thumbnail.png';" />
                             </a>
                             <div class="info">
-                                <h3><a href="./da-lao-hoa-nho-nhung-luu-y-nay-de-lua-chon-sua-rua-mat-phu-hop.html"
-                                    title="Da lão hóa nhớ những lưu ý này để lựa chọn sữa rửa mặt phù hợp">Da lão hóa nhớ những lưu ý này để lựa chọn sữa rửa mặt phù hợp</a>
+                                <h3><a href="{{ route('details', $value->link) }}"
+                                    title="{{ $value->title }}">{{ $value->title }}</a>
                                 </h3>
                             </div>
                             <div class="desc">
-                                Để làn da lão hóa được cải thiện hiệu quả thì việc chọn lựa sữa rửa mặt là một trong những bước vô cùng quan trọng. Bài viết hôm nay sẽ chia sẻ đến bạn một vài bí kíp để&hellip;                            
+                                  {!! strip_tags(_substrs($value->content,650))  !!}            
                             </div>
                         </article>
+
+                        
+                        @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="row">
@@ -47,7 +60,9 @@
                                 title="{{ @$namecate->namecategory  }}">{{ @$namecate->namecategory  }}</a></h2>
                             <div class=" news">
                                 @if(count($datacate)>0)
-                                @foreach($datacate as $val)
+                                @foreach($datacate as $key => $val)
+
+                                @if($key>0)
                                 <article class="featured">
                                     <a href="{{ route('details', $val->link) }}" title="{{ $val->title }}">
                                     <img src="{{ asset($val->image) }}" alt="{{ $val->title }}"
@@ -59,6 +74,7 @@
                                         </h3>
                                     </div>
                                 </article>
+                                @endif
 
                                 @endforeach
                                 @endif
