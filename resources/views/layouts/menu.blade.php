@@ -25,41 +25,7 @@
 
 
 
-<li class="nav-item"  >
-    <div style="display:flex;">
-        <a href="{{ route('pop-up-show') }}"
-           class="nav-link {{ Request::is('groupProducts*') ? 'active' : '' }}" style="width: 68%;">
-            <p>Hiển thị</p>
-            
-        </a>
-       
-        <span class="btn btn-link opens-fe" style="width: 12%;">+</span>
-    </div>    
-        
 
-   <!--  <ul style="width: 68%">
-        
-        <li class="child-navs" style="">
-            <a href="{{ route('pop-up-show') }}" class="nav-link">
-                <p>Popup-toàn trang</p>
-            </a>
-        </li>
-
-        <li class="child-navs" style="">
-            <a href="#" class="nav-link">
-                <p>Tìm kiếm nhiều cuối trang</p>
-            </a>
-        </li>
-
-        <li class="child-navs" style="">
-            <a href="#" class="nav-link">
-                <p>Đổi hình nền toàn trang</p>
-            </a>
-        </li>
-        
-    </ul> -->
-    
-</li>
 @if(Auth::user()->permision>1)
 
 <!-- <li class="nav-item" style="display: flex; height:44px;"  >
@@ -123,12 +89,7 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <a href="{{ route('makers.index') }}"
-       class="nav-link {{ Request::is('makers*') ? 'active' : '' }}">
-        <p>Hãng phân phối</p>
-    </a>
-</li>
+
 
 <li class="nav-item">
     <a href="{{ route('redirect.list') }}"
@@ -152,16 +113,7 @@
 </li>
 
 
-@if(Auth::user()->permision>1)
 
-<li class="nav-item">
-    <a href="https://sieuthitivi.com/admins/category/1"
-       class="nav-link {{ Request::is('products*') ? 'active' : '' }}">
-        <p>Sản phẩm</p>
-    </a>
-</li>
-
-@endif
 
 @if(Auth::user()->permision == 3)
 
@@ -241,12 +193,5 @@
     
 </script>
 
-
-<li class="nav-item">
-    <a href="{{ route('gifts.index') }}"
-       class="nav-link {{ Request::is('gifts*') ? 'active' : '' }}">
-        <p>Gifts</p>
-    </a>
-</li>
 
 
