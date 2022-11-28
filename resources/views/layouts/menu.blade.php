@@ -181,33 +181,10 @@
 
 @endif
 
-<li class="nav-item">
-    <a href="{{ route('banners.index') }}"
-       class="nav-link {{ Request::is('banners*') ? 'active' : '' }}">
-        <p>Banner</p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('order_list') }}"
-       class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
-        <p>Order</p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('deal') }}"
-       class="nav-link {{ Request::is('deal') ? 'active' : '' }}">
-        <p>Deal</p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('flashDeal') }}"
-       class="nav-link {{ Request::is('flashDeal') ? 'active' : '' }}">
-        <p>Flash Deal</p>
-    </a>
-</li>
+
 
 <li class="nav-item">
     <a href="{{ route('posts.index') }}"
@@ -216,26 +193,8 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <a href="{{ route('landing') }}"
-       class="nav-link {{ Request::is('landing') ? 'active' : '' }}">
-        <p>Landing-page </p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('rate-client') }}"
-       class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
-        <p>Đánh giá sản phẩm </p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('postcd') }}"
-       class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
-        <p>Nội dung cố định </p>
-    </a>
-</li>
 
 
 <style type="text/css">
