@@ -92,9 +92,7 @@
                 <div class=" articles-page-container mt-5">
 
                     <?php 
-
                         $data = App\Models\post::where('category',6)->take(6)->get();  
-
                     ?>  
 
                     @if($data->count()>0)

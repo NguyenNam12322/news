@@ -158,7 +158,7 @@
                     <div class="copyright-group">
                         <div class="left">
                             <span>Copyright ©
-                            2021 Mẹo vặt Gia đình. All Rights Reserved.</span>
+                            2022 Mẹo vặt Gia đình. All Rights Reserved.</span>
                         </div>
                         <div class="right">
                             <ul id="menu-footer-menu-04" class="">
