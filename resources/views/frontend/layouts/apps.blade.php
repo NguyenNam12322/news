@@ -90,9 +90,9 @@
                     <div class="col-12 col-lg-2 col-xl-2">
                         <div class="row">
                             <div class="logo">
-                                <a href="./"> <img
+                                <!-- <a href="./"> <img
                                     src="./wp-content/themes/meovatgiadinh/assets/images/logo.png"
-                                    alt="Mẹo vặt Gia đình" /></a>
+                                    alt="Mẹo vặt Gia đình" /></a> -->
                             </div>
                             <span class="toggle-nav">
                             <i class="far fa-bars"></i>
