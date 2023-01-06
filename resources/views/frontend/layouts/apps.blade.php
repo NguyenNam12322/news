@@ -145,11 +145,11 @@
                         <a href="./lien-he.html">Liên hệ với chúng tôi.</a>
                     </div>
                     <div class="col-12 col-lg-6 footer-col-item mt-3 text-center text-lg-right">
-                        <a href="https://daiphatcoffee.com/" target="_blank" title="Cà phê sạch, rang xay nguyên chất Đại Phát">
+                        <!-- <a href="https://daiphatcoffee.com/" target="_blank" title="Cà phê sạch, rang xay nguyên chất Đại Phát">
                         <img style="max-width: 100%; border-radius: 5px;"
                             src="./wp-content/themes/meovatgiadinh/assets/images/daiphatcoffee.png"
                             alt="Cà phê sạch, rang xay nguyên chất Đại Phát" />
-                        </a>
+                        </a> -->
                     </div>
                     </ul>
                 </div>
