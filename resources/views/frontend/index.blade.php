@@ -138,9 +138,9 @@
                         <div class="news-group">
                             <a href="#" target="_blank"
                                 title="Góc Mẹo Hay - Cẩm Nang Các Mẹo Vặt Hay Trong Cuộc Sống">
-                            <img style="max-width: 100%; border-radius: 5px;"
+                            <!-- <img style="max-width: 100%; border-radius: 5px;"
                             src="./wp-content/uploads/2022/09/thumb.png"              
-                            alt="Góc Mẹo Hay - Cẩm Nang Các Mẹo Vặt Hay Trong Cuộc Sống" />
+                            alt="Góc Mẹo Hay - Cẩm Nang Các Mẹo Vặt Hay Trong Cuộc Sống" /> -->
                             </a>
                         </div>
                     </div>

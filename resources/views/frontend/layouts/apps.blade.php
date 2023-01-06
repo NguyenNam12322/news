@@ -137,10 +137,10 @@
             <div class="container">
                 <div class="row nav-group">
                     <div class="col-12 col-lg address footer-col-item">
-                        <a class="logo" href="./" title="Mẹo vặt Gia đình">
+                        <!-- <a class="logo" href="./" title="Mẹo vặt Gia đình">
                         <img src="./wp-content/themes/meovatgiadinh/assets/images/logo.png" alt="Mẹo vặt Gia đình"
                             title="Mẹo vặt Gia đình" />
-                        </a>
+                        </a> -->
                         <p>Chia sẻ những kinh nghiệm hay trong cuộc sống.</p>
                         <a href="./lien-he.html">Liên hệ với chúng tôi.</a>
                     </div>
