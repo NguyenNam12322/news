@@ -62,6 +62,8 @@
                                 @if(count($datacate)>0)
                                 @foreach($datacate as $key => $val)
 
+                                {{ $key }}
+
                                 @if($key>0)
                                 <article class="featured">
                                     <a href="{{ route('details', $val->link) }}" title="{{ $val->title }}">
