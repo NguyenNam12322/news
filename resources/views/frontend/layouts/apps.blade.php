@@ -20,7 +20,7 @@
         <meta name="keywords" content="{{ $meta->meta_key_words??'sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến' }}"/>
 
         @else
-        <title>Cách sửa điện máy- chia sẻ những mẹo vặt sửa chữa điện máy </title>
+        <title>Cách Sửa Điện Máy - Làm tại nhà, đơn giản, an toàn, không cần gọi thợ</title>
       
         <!-- This site is optimized with the Yoast SEO Premium plugin v14.9 - https://yoast.com/wordpress/plugins/seo/ -->
         <meta name="description" content="Chia sẻ những MẸO VẶT, kinh nghiệm hay trong cuộc sống, gia đình hàng ngày. Cuộc sống của bạn sẽ trở nên tiện ích và sinh động hơn." />
