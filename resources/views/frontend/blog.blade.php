@@ -26,7 +26,7 @@
                 <a property="item" typeof="WebPage" title="Go to Mẹo vặt gia đình." href="/" class="home" ><span property="name">Trang chủ</span></a>
                 <meta property="position" content="1">
             </span>
-            &nbsp;&nbsp; <i class="fal fa-angle-right"></i> &nbsp;&nbsp;
+            &nbsp;&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;&nbsp;
             <span property="itemListElement" typeof="ListItem">
                 <span property="name" class="archive taxonomy category current-item">{{ $name_cates_cate }}</span>
                 <meta property="url" content="#">
@@ -65,8 +65,7 @@
                         </div>
                         <div class="desc">
                             {!! strip_tags(_substrs($value->content,350))  !!}                         
-                            <a href="{{ route('details', $value->link) }}" title="{{ $value->title }}">Chi tiết <i
-                                class="far fa-long-arrow-right"></i> 
+                            <a href="{{ route('details', $value->link) }}" title="{{ $value->title }}">Chi tiết <i class="fa fa-arrow-right" aria-hidden="true"></i> 
                             </a>
                         </div>
                     </div>
