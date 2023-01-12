@@ -142,7 +142,7 @@
 
 
                    
-                    <a href="./meo-hay-cuoc-song" class="more ml-auto mr-auto">Xem thêm Mẹo hay cuộc sống <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="https://cachsuadienmay.vn/cach-sua-ti-vi" class="more ml-auto mr-auto">Xem thêm <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-4 sidebar" style="display: inherit;">
