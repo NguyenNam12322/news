@@ -76,7 +76,7 @@
             </div>
             <div class="col-12 col-lg-4 sidebar" style="display: inherit;">
                 <div class="sidebar-sticky-2">
-                    <div class="news-group  mt-4">
+                    <div class="news-group  mt-4" style="display:none">
                         <div class="news-group">
                             <a href="https://gocmeohay.com/" target="_blank"
                                 title="Góc Mẹo Hay - Cẩm Nang Các Mẹo Vặt Hay Trong Cuộc Sống">
