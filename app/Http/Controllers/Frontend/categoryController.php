@@ -453,9 +453,11 @@ class categoryController extends Controller
 
         }
 
+        $meta = metaSeo::find($datas->Meta_id);
+
         $data = post::where('category', $datas->id)->where('active', 1)->orderBy('date_post','desc')->orderBy('date_post','desc')->paginate(10);
 
-        echo view('frontend.blog', compact('data','name_cates_cate'));
+        echo view('frontend.blog', compact('data','name_cates_cate','meta'));
 
         die();
 
