@@ -3,12 +3,12 @@
 
 @push('style')
 
-      <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/bootstrap.min.css" />
+      <!-- <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/app.css" />
         <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/style.css" />
         <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/responsive.css" />
         <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/custom.css" />
-        <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/all.min.css" />
+        <link rel="stylesheet" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/css/all.min.css" /> -->
 
 @endpush
 
