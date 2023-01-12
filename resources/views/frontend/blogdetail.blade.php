@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-12 col-lg-4 sidebar" style="display: inherit;">
                     <div class="sidebar-sticky-2">
-                        <div class="news-group  mt-4">
+                        <div class="news-group  mt-4" style="display:none;">
                             <div class="news-group">
                                 <a href="https://gocmeohay.com/" target="_blank"
                                     title="Góc Mẹo Hay - Cẩm Nang Các Mẹo Vặt Hay Trong Cuộc Sống">
@@ -110,18 +110,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="ad mt-4" style="min-height: 280px; max-width: 336px;">
-                            <!-- Sidebar 01 -->
-                            <ins class="adsbygoogle"
-                                style="display:block"
-                                data-ad-client="ca-pub-9771722450338604"
-                                data-ad-slot="1292600754"
-                                data-ad-format="auto"
-                                data-full-width-responsive="true"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
+                       
                         <div class="news-group  mt-4">
                             <h2>Bài nổi bật</h2>
                              @include('frontend.featured')
