@@ -20,12 +20,12 @@
         <meta name="keywords" content="{{ $meta->meta_key_words??'sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến' }}"/>
 
         @else
-        <title>Mẹo Vặt Gia Đình - Chia sẻ những mẹo vặt gia đình, cuộc sống hay nhất</title>
+        <title>Cách sửa điện máy- chia sẻ những mẹo vặt sửa chữa điện máy </title>
       
         <!-- This site is optimized with the Yoast SEO Premium plugin v14.9 - https://yoast.com/wordpress/plugins/seo/ -->
         <meta name="description" content="Chia sẻ những MẸO VẶT, kinh nghiệm hay trong cuộc sống, gia đình hàng ngày. Cuộc sống của bạn sẽ trở nên tiện ích và sinh động hơn." />
         @endif
-        <meta name="robots" content="noindex, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="website" />
