@@ -57,14 +57,15 @@
                         <div class="news-group">
                             <h2><a style="color: #c00000;text-transform: uppercase;font-size: 18px;"
                                 href="{{ route('details', $namecate->link) }}"
-                                title="{{ @$namecate->namecategory  }}">{{ @$namecate->namecategory  }}</a></h2>
+                                title="{{ @$namecate->namecategory  }}">{{ @$namecate->namecategory  }}</a>
+                            </h2>
                             <div class=" news">
                                 @if(count($datacate)>0)
                                 @foreach($datacate as $key => $val)
 
-                                {{ $key }}
+                               
 
-                                @if($key>0)
+                                @if($key==0)
                                 <article class="featured">
                                     <a href="{{ route('details', $val->link) }}" title="{{ $val->title }}">
                                     <img src="{{ asset($val->image) }}" alt="{{ $val->title }}"
@@ -73,6 +74,17 @@
                                     <div class="info">
                                         <h3><a href="{{ route('details', $val->link) }}"
                                             title="{{ $val->title }}">{{ $val->title }}</a>
+                                        </h3>
+                                    </div>
+                                </article>
+                                @else
+
+                                <article class="">
+                                    <a href="{{ route('details', $val->link) }}" title="{{ $val->title }}">
+                                        <img src="{{ asset($val->image) }}" alt="{{ $val->title }}">
+                                    </a>
+                                    <div class="info">
+                                        <h3><a href="{{ route('details', $val->link) }}" title="{{ $val->title }}">{{ $val->title }}</a>
                                         </h3>
                                     </div>
                                 </article>
