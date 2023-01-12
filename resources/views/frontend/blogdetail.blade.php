@@ -5,13 +5,7 @@
     <div class="container">
         <div class="ad mb-4"
             style="text-align: center; margin-top: 20px;display: block; min-height: 90px; max-width: 970px; margin-left: auto; margin-right: auto;">
-            <ins class="adsbygoogle"
-                style="display:inline-block;width:728px;height:90px"
-                data-ad-client="ca-pub-9771722450338604"
-                data-ad-slot="8876960195"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+           
         </div>
     </div>
 </div>
@@ -28,12 +22,12 @@
                 <a property="item" typeof="WebPage" title="Go to Mẹo vặt gia đình." href="/" class="home" ><span property="name">Trang chủ</span></a>
                 <meta property="position" content="1">
             </span>
-            &nbsp;&nbsp; <i class="fal fa-angle-right"></i> &nbsp;&nbsp;
+            &nbsp;&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;&nbsp;
             <span property="itemListElement" typeof="ListItem">
                 <a property="item" typeof="WebPage" title="Go to the Làm đẹp category archives." href="{{ route('details', $cate->link) }}" class="taxonomy category" ><span property="name">{{ $cate->namecategory }}</span></a>
                 <meta property="position" content="2">
             </span>
-            &nbsp;&nbsp; <i class="fal fa-angle-right"></i> &nbsp;&nbsp;
+            &nbsp;&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;&nbsp;
             <span property="itemListElement" typeof="ListItem">
                 <span property="name" class="post post-post current-item">{{ $data->title }}</span>
                 <meta property="url" content="{{ $data->title }}">

@@ -123,10 +123,10 @@
                             @endif
                            
                         </ul>
-                        <li class="search-container"><span><i class="fal fa-search"></i></span>
+                       <!--  <li class="search-container"><span><i class="fal fa-search"></i></span>
                             <input type="text" class="form-control input-search" placeholder="Tìm kiếm...">
                             <span class="btnSearch"><i class="fal fa-search"></i></span>
-                        </li>
+                        </li> -->
                     </div>
                 </div>
             </div>
