@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+        <meta name="google-site-verification" content="c7Co0iy_B2Xda_fn_th5ox98RCyFBIO5sIATXbE5scE" />
         <link rel="shortcut icon" href="">
         <link rel="apple-touch-icon" sizes="180x180" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/images/appleIcon.png">
         <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/bootstrap.min.css" />
