@@ -158,13 +158,7 @@
                         </div>
                     </div>
                     <div class="ad mt-4">
-                        <!-- Sidebar 01 -->
-                        <ins class="adsbygoogle"
-                            style="display:block"
-                            data-ad-client="ca-pub-9771722450338604"
-                            data-ad-slot="1292600754"
-                            data-ad-format="auto"
-                            data-full-width-responsive="true"></ins>
+                        
                        
                     </div>
                     <div class="news-group  mt-4">
