@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/responsive.css" />
         <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/custom.css" />
         <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
          @if(isset($meta))
         <title>{{ $meta->meta_title }}</title>
@@ -172,7 +173,7 @@
                 </div>
             </div>
         </footer>
-        <p id="toTop"><i class="fal fa-long-arrow-up"></i></p>
+        <p id="toTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></p>
         <script src="./wp-content/themes/meovatgiadinh/assets/scripts/jquery.min.js"></script>
         <script src="./wp-content/themes/meovatgiadinh/assets/scripts/bootstrap.min.js"></script>
         <script src="./wp-content/themes/meovatgiadinh/assets/scripts/jquery.validate.min.js"></script>

@@ -58,7 +58,9 @@
                         </h2>
                         <div class="info">
                             <span>
-                            <i class="fad fa-user-shield"></i>{{ $name_cates_cate }}</span>
+                            <i class="fa fa-user" aria-hidden="true"></i> {{ $name_cates_cate }}   
+
+                            
                            
                         </div>
                         <div class="desc">

@@ -142,8 +142,7 @@
 
 
                    
-                    <a href="./meo-hay-cuoc-song" class="more ml-auto mr-auto">Xem thêm Mẹo hay cuộc sống <i
-                        class="far fa-long-arrow-right"></i></a>
+                    <a href="./meo-hay-cuoc-song" class="more ml-auto mr-auto">Xem thêm Mẹo hay cuộc sống <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-4 sidebar" style="display: inherit;">
