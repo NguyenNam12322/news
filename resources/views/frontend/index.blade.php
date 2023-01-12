@@ -7,8 +7,8 @@
             <div class="col-12 col-lg-8">
                 <div class="row news-group">
                     <div class="col-12 news">
-                        <h1 class="mt-2 mb-4" style="font-size: 15px;color: #c00000;">Mẹo vặt Gia đình - Nơi chia sẻ
-                            những bí quyết, mẹo hay trong cuộc sống
+                        <h1 class="mt-2 mb-4" style="font-size: 15px;color: #c00000;">
+                            Cách Sửa Điện Máy - Website cung cấp những cách sửa đồ điện tử, điện lạnh, gia dụng đơn giản, dễ hiểu và hiệu quả nhất
                         </h1>
 
 
