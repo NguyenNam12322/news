@@ -144,7 +144,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ad mt-4" style="min-height: 280px; max-width: 336px;">
+                    <div class="ad mt-4">
                         <!-- Sidebar 01 -->
                         <ins class="adsbygoogle"
                             style="display:block"
