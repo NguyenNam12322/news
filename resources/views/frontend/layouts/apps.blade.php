@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
-        <link rel="shortcut icon" href="./wp-content/themes/meovatgiadinh/assets/images/favicon.png">
+        <link rel="shortcut icon" href="">
         <link rel="apple-touch-icon" sizes="180x180" href="https://meovatgiadinh.vn/wp-content/themes/meovatgiadinh/assets/images/appleIcon.png">
         <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="./wp-content/themes/meovatgiadinh/assets/css/app.css" />
@@ -142,8 +142,8 @@
                         <img src="./wp-content/themes/meovatgiadinh/assets/images/logo.png" alt="Mẹo vặt Gia đình"
                             title="Mẹo vặt Gia đình" />
                         </a> -->
-                        <p>Chia sẻ những kinh nghiệm hay trong cuộc sống.</p>
-                        <a href="./lien-he.html">Liên hệ với chúng tôi.</a>
+                        <p>Chia sẻ những kinh nghiệm sửa chữa điện máy</p>
+                        
                     </div>
                     <div class="col-12 col-lg-6 footer-col-item mt-3 text-center text-lg-right">
                         <!-- <a href="https://daiphatcoffee.com/" target="_blank" title="Cà phê sạch, rang xay nguyên chất Đại Phát">
@@ -157,10 +157,7 @@
                 <div class="row">
                     
                     <div class="copyright-group">
-                        <div class="left">
-                            <span>Copyright ©
-                            2022 Mẹo vặt Gia đình. All Rights Reserved.</span>
-                        </div>
+                       
                         <div class="right">
                             <ul id="menu-footer-menu-04" class="">
                                 <li id="menu-item-2745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2745"><a href="./gioi-thieu.html">Giới thiệu</a></li>
