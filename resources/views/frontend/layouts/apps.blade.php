@@ -161,9 +161,9 @@
                        
                         <div class="right">
                             <ul id="menu-footer-menu-04" class="">
-                                <li id="menu-item-2745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2745"><a href="./gioi-thieu.html">Giới thiệu</a></li>
-                                <li id="menu-item-18967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-18967"><a href="./chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
-                                <li id="menu-item-25625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25625"><a href="./lien-he.html">Liên hệ</a></li>
+                                <li id="menu-item-2745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2745"><a href="#">Giới thiệu</a></li>
+                                <li id="menu-item-18967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-18967"><a href="#">Chính sách bảo mật</a></li>
+                                <li id="menu-item-25625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25625"><a href="#">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
