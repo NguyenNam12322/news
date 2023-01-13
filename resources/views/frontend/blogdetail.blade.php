@@ -3,7 +3,7 @@
 
 <style type="text/css">
     
-    h3, h2{
+    h3, h2, h4{
         font-weight: 500;
     }
 </style>
