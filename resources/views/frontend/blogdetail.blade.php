@@ -1,6 +1,13 @@
 @extends('frontend.layouts.apps')
 @section('content')
 
+<style type="text/css">
+    
+    h3{
+        font-weight: 500;
+    }
+</style>
+
  <div class="adContainer">
     <div class="container">
         <div class="ad mb-4"
