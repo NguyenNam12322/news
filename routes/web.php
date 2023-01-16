@@ -39,9 +39,11 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->middleware('thrott
 
 Route::post('ajax-clent-register', 'AjaxController@registerClient')->name('register-client-fe');
 
+// Route::get('sitemap.xml', 'sitemapController@index');
+
 Auth::routes(['verify' => true]);
 
-Route::get('sitemap.xml', 'sitemapController@index');
+
 
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
