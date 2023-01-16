@@ -41,6 +41,8 @@ Route::post('ajax-clent-register', 'AjaxController@registerClient')->name('regis
 
 Auth::routes(['verify' => true]);
 
+Route::get('sitemap.xml', 'sitemapController@index');
+
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
 
