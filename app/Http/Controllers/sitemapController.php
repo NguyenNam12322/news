@@ -12,7 +12,7 @@ class sitemapController extends Controller
 {
    public function index()
    {
-        echo "string";
+      return view('sitemap.index');
 
    }
 
