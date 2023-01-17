@@ -189,11 +189,11 @@
 <url><loc>https://dienmaynguoiviet.vn/sitemap_pc354.xml</loc></url>
 <url><loc>https://dienmaynguoiviet.vn/sitemap_pc355.xml</loc></url>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap>
-<loc>http://cachsuadienmay.vn/sitemap_category.xml</loc>
-</sitemap>
-<sitemap>
-<loc>http://cachsuadienmay.vn/sitemap_article.xml</loc>
-</sitemap>
+	<sitemap>
+		<loc>http://cachsuadienmay.vn/sitemap_category.xml</loc>
+	</sitemap>
+
+	<sitemap>
+		<loc>http://cachsuadienmay.vn/sitemap_article.xml</loc>
+	</sitemap>
 </sitemapindex>
-</urlset>
