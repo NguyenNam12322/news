@@ -8,6 +8,8 @@ use App\Models\post;
 
 use App\Models\product;
 
+use DB;
+
 class sitemapController extends Controller
 {
    public function index()
@@ -15,6 +17,17 @@ class sitemapController extends Controller
       return view('sitemap.index');
 
    }
+
+   public function category()
+   {
+      
+      $category = DB::table('categories')->get();
+
+      return response()->view('sitemap.child', [
+            'category' => $category,
+      ])->header('Content-Type', 'text/xml');
+   }
+
 
    public function sitemapChildProduct()
    {

@@ -22,6 +22,11 @@ Route::get('/lien-he', 'mainController@lienhe');
 
 Route::get('/crawl', 'crawlController@updateLinkCategory');
 
+Route::get('/sitemap_category.xml', 'sitemapController@category');
+
+Route::get('/sitemap_article.xml', 'sitemapController@sitemapChildBlog');
+
+
 
 Route::get('/', 'Frontend\indexController@index')->middleware('throttle:60')->name('homeFe');
 
@@ -39,7 +44,7 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->middleware('thrott
 
 Route::post('ajax-clent-register', 'AjaxController@registerClient')->name('register-client-fe');
 
-// Route::get('sitemap.xml', 'sitemapController@index');
+
 
 Auth::routes(['verify' => true]);
 
