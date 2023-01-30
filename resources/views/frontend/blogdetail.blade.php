@@ -63,6 +63,7 @@
                     </div>
                     <div class="content mt-2">
                         
+                        
                         {!! html_entity_decode($data->content)   !!}
                     </div>
                     <div class="mt-2">
