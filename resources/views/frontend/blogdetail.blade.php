@@ -50,6 +50,8 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <h1 style="text-align: left;">{{ $data->title }}</h1>
+                    <br>
+                    <time>{{ @$data->created_at->format('d-m-Y, H:i:s') }}</time>
                     <div class="info  mt-4">
                         <!-- <span>
                             <i class="fad fa-folders"></i>
