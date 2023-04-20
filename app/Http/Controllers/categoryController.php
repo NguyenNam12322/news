@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use DB;
 use Response;
+use App\Models\metaSeo;
 
 class categoryController extends AppBaseController
 {
@@ -58,6 +59,27 @@ class categoryController extends AppBaseController
         $input = $request->all();
 
         $input['link'] = convertSlug($input['namecategory']);
+
+        $meta_title = $input['namecategory'];
+
+        $meta_content = $input['namecategory']; 
+
+        $meta_model = new metaSeo();
+
+        $meta_model->meta_title =$meta_title;
+
+        $meta_model->meta_content =$meta_content;
+
+        $meta_model->meta_og_content =$meta_content;
+
+        $meta_model->meta_og_title =$meta_title;
+
+        $meta_model->meta_key_words =$meta_title;
+
+        $meta_model->save();
+
+        $input['Meta_id'] = $meta_model['id'];
+
 
         $category = $this->categoryRepository->create($input);
 
