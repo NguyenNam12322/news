@@ -84,7 +84,7 @@
        
         @if(!empty($posts))    
         @foreach($posts as $post)
-            {{ $post->title }}
+            {{ $post->title??'' }}
 
             <!-- @if($post->category!=5)
             <tr>
