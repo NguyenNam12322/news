@@ -87,7 +87,9 @@
             ?>      
         @if(!empty($posts))    
         @foreach($posts as $post)
-            @if($post->category!=5)
+            {{ $post->title }}
+
+            <!-- @if($post->category!=5)
             <tr>
                 <td><img src="{{ url($post->image) }}" style="width:200px"></td>
             <td>{{ strip_tags($post->title) }}</td>
@@ -121,8 +123,13 @@
                     {!! Form::close() !!}
                 </td>
             </tr>
-            @endif
+            @endif -->
         @endforeach
+
+        <?php 
+
+            die();
+        ?>
 
         @endif
         </tbody>
