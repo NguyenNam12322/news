@@ -81,10 +81,7 @@
 
             
 
-        <?php 
-
-                dd($posts);
-            ?>      
+       
         @if(!empty($posts))    
         @foreach($posts as $post)
             {{ $post->title }}
