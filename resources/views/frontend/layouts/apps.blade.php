@@ -26,7 +26,7 @@
         <!-- This site is optimized with the Yoast SEO Premium plugin v14.9 - https://yoast.com/wordpress/plugins/seo/ -->
         <meta name="description" content="Chia sẻ những MẸO VẶT, kinh nghiệm hay trong cuộc sống, gia đình hàng ngày. Cuộc sống của bạn sẽ trở nên tiện ích và sinh động hơn." />
         @endif
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="robots" content="{{ (isset($actives_pages_blog) && $actives_pages_blog ==0)?'noindex':'index' }}, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="website" />

@@ -413,6 +413,8 @@ class categoryController extends Controller
 
     public function blogDetailView($slug)
     {
+
+
         $link = trim($slug);
 
         $data = post::where('link', $link)->first();
@@ -427,8 +429,9 @@ class categoryController extends Controller
 
         $meta = metaSeo::find($data->Meta_id);
 
+        $actives_pages_blog = $data->active;
        
-        echo view('frontend.blogdetail',compact('meta', 'data'));
+        echo view('frontend.blogdetail',compact('meta', 'data', 'actives_pages_blog'));
 
         die();
     }
@@ -466,6 +469,8 @@ class categoryController extends Controller
 
     public function pageView($slug)
     {
+
+
         $link = trim($slug);
 
         $data = post::where('link', $link)->where('category', 5)->first();
