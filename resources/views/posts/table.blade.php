@@ -84,51 +84,53 @@
        
         @if(!empty($posts))    
         @foreach($posts as $post)
-            {{ $post->title??'' }}
-
-            <!-- @if($post->category!=5)
+            @if($post->category!=5)
             <tr>
-                <td><img src="{{ url($post->image) }}" style="width:200px"></td>
-            <td>{{ strip_tags($post->title) }}</td>
+
+                <td> 
+                    @if(!empty($post->image))  
+                    <img src="{{ url($post->image) }}" style="width:200px">
+
+                    @endif
+
+                </td>
+                <td>{{ strip_tags($post->title) }}</td>
 
 
-            <td>{{ @$new_category[$post->category]??'' }}</td>
-            <td>{{ @$post->date_post }}</td>  
+                <td>{{ @$new_category[$post->category]??'' }}</td>
+                <td>{{ @$post->date_post }}</td>  
 
-            <td><a href="javascript:voi(0)" class="active-post" onclick="add_active('{{ $post->id }}','{{ $post->active }}')">{!! $post->active ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>   
-             
-            <td><a href="javascript:void(0)" class="hight-light-post"  onclick="add_hight_light('{{ $post->id }}','{{ $post->hight_light }}')" data-id="{{ $post->id }}">{!! $post->hight_light ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>
-            <td>
-                <input type="checkbox" id="featured{{ $post->id }}" name="hots"  onclick='featured({{ $post->id }});' {{ $post->featured==1?'checked':'' }}>
-            </td>
+                <td><a href="javascript:voi(0)" class="active-post" onclick="add_active('{{ $post->id }}','{{ $post->active }}')">{!! $post->active ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>   
+                 
+                <td><a href="javascript:void(0)" class="hight-light-post"  onclick="add_hight_light('{{ $post->id }}','{{ $post->hight_light }}')" data-id="{{ $post->id }}">{!! $post->hight_light ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>
+                <td>
+                    <input type="checkbox" id="featured{{ $post->id }}" name="hots"  onclick='featured({{ $post->id }});' {{ $post->featured==1?'checked':'' }}>
+                </td>
+                    
                 
-            
-            <td>{{ App\User::find($post->id_user)->name??'' }} </td>
-                <td width="120">
-                    {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('details', [$post->link]) }}"
-                           class='btn btn-default btn-xs' target="_blank">
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="{{ route('posts.edit', [$post->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
-                        </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
+                <td>{{ App\User::find($post->id_user)->name??'' }} </td>
+                    <td width="120">
+                        {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            <a href="{{ route('details', [$post->link]) }}"
+                               class='btn btn-default btn-xs' target="_blank">
+                                <i class="far fa-eye"></i>
+                            </a>
+                            <a href="{{ route('posts.edit', [$post->id]) }}"
+                               class='btn btn-default btn-xs'>
+                                <i class="far fa-edit"></i>
+                            </a>
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        </div>
+                        {!! Form::close() !!}
                 </td>
             </tr>
-            @endif -->
+            @endif
         @endforeach
 
-        <?php 
-
-            die();
-        ?>
-
         @endif
+        
+       
         </tbody>
     </table>
 </div>
