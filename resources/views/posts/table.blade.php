@@ -79,10 +79,7 @@
         </thead>
         <tbody>
 
-            <?php 
-
-                die();
-            ?>
+            
 
           
         @if(!empty($posts))    
@@ -91,7 +88,7 @@
             <tr>
                 <td><img src="{{ url($post->image) }}" style="width:200px"></td>
             <td>{{ strip_tags($post->title) }}</td>
-            <td>{{ @$new_category[$post->category] }}</td>
+            <td>{{ @$new_category[$post->category]??'' }}</td>
             <td>{{ @$post->date_post }}</td>  
 
             <td><a href="javascript:voi(0)" class="active-post" onclick="add_active('{{ $post->id }}','{{ $post->active }}')">{!! $post->active ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>   
@@ -100,8 +97,11 @@
             <td>
                 <input type="checkbox" id="featured{{ $post->id }}" name="hots"  onclick='featured({{ $post->id }});' {{ $post->featured==1?'checked':'' }}>
             </td>
-            
                 
+            <?php 
+
+                die();
+            ?>    
             <td>{{ App\User::find($post->id_user)->name??'' }} </td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
