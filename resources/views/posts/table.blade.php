@@ -81,7 +81,10 @@
 
             
 
-          
+        <?php 
+
+                dd($posts);
+            ?>      
         @if(!empty($posts))    
         @foreach($posts as $post)
             @if($post->category!=5)
@@ -89,10 +92,7 @@
                 <td><img src="{{ url($post->image) }}" style="width:200px"></td>
             <td>{{ strip_tags($post->title) }}</td>
 
-            <?php 
 
-                die();
-            ?>    
             <td>{{ @$new_category[$post->category]??'' }}</td>
             <td>{{ @$post->date_post }}</td>  
 
