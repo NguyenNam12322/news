@@ -88,6 +88,11 @@
             <tr>
                 <td><img src="{{ url($post->image) }}" style="width:200px"></td>
             <td>{{ strip_tags($post->title) }}</td>
+
+            <?php 
+
+                die();
+            ?>    
             <td>{{ @$new_category[$post->category]??'' }}</td>
             <td>{{ @$post->date_post }}</td>  
 
@@ -98,10 +103,7 @@
                 <input type="checkbox" id="featured{{ $post->id }}" name="hots"  onclick='featured({{ $post->id }});' {{ $post->featured==1?'checked':'' }}>
             </td>
                 
-            <?php 
-
-                die();
-            ?>    
+            
             <td>{{ App\User::find($post->id_user)->name??'' }} </td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
