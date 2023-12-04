@@ -32,6 +32,322 @@ use \Carbon\Carbon;
 class crawlController extends Controller
 {
 
+    public function convertSlug($title)
+    {
+       
+        $replacement = '-';
+        $map = array();
+        $quotedReplacement = preg_quote($replacement, '/');
+        $default = array(
+            '/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ|å/' => 'a',
+            '/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ|ë/' => 'e',
+            '/ì|í|ị|ỉ|ĩ|Ì|Í|Ị|Ỉ|Ĩ|î/' => 'i',
+            '/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ|ø/' => 'o',
+            '/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ|ů|û/' => 'u',
+            '/ỳ|ý|ỵ|ỷ|ỹ|Ỳ|Ý|Ỵ|Ỷ|Ỹ/' => 'y',
+            '/đ|Đ/' => 'd',
+            '/ç/' => 'c',
+            '/ñ/' => 'n',
+            '/ä|æ/' => 'ae',
+            '/ö/' => 'oe',
+            '/ü/' => 'ue',
+            '/Ä/' => 'Ae',
+            '/Ü/' => 'Ue',
+            '/Ö/' => 'Oe',
+            '/ß/' => 'ss',
+            '/[^\s\p{Ll}\p{Lm}\p{Lo}\p{Lt}\p{Lu}\p{Nd}]/mu' => ' ',
+            '/\\s+/' => $replacement,
+            sprintf('/^[%s]+|[%s]+$/', $quotedReplacement, $quotedReplacement) => '',
+        );
+        //Some URL was encode, decode first
+        $title = urldecode($title);
+        $map = array_merge($map, $default);
+        return strtolower(preg_replace(array_keys($map), array_values($map), $title));
+
+    }
+
+    public function crawlwebtantam()
+    {
+
+        $link = 'meo-hay/huong-dan-cach-tao-do-am-trong-phong-may-lanh-don-gian-1550550
+           meo-hay/mach-ban-cach-khu-mui-hoi-trong-phong-may-lanh-1550425
+           meo-hay/huong-dan-cach-ket-noi-may-lanh-lg-voi-dien-thoai-1550413
+           meo-hay/hen-suyen-la-gi-tre-bi-suyen-co-nen-ngu-may-lanh-1549939
+           meo-hay/may-lanh-reetech-bao-loi-e3-nguyen-nhan-va-cach-khac-phuc-1549210
+           meo-hay/may-lanh-aqua-bao-loi-f1-nguyen-nhan-va-cach-xu-ly-1549034
+           meo-hay/ban-can-lam-gi-khi-xuat-hien-ma-loi-may-lanh-sharp-chop-den-1548999
+           meo-hay/tre-sot-co-nen-nam-may-lanh-khong-mot-so-luu-y-1548736
+           meo-hay/swing-trong-may-lanh-la-gi-cach-su-dung-nhu-the-nao-1548507
+           meo-hay/nhiet-do-may-lanh-cho-tre-so-sinh-bao-nhieu-la-an-toan-1550872
+           meo-hay/chi-tiet-cach-khac-phuc-khi-may-lanh-electrolux-1550856
+           meo-hay/nguyen-nhan-may-lanh-thoi-ra-hoi-nong-1550840
+           meo-hay/cach-khac-phuc-khi-may-lanh-lg-bao-loi-ch10-1550735
+           meo-hay/nguyen-nhan-va-cach-sua-may-lanh-khong-mo-canh-1550573
+           meo-hay/bang-tra-cuu-ma-loi-may-lanh-reetech-day-du-nhat-1550571
+           meo-hay/cach-reset-may-lanh-toshiba-don-gian-1550271" 
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-gree-day-du-va-chi-tiet-1550093
+           meo-hay/cach-su-dung-dieu-khien-may-lanh-daikin-day-du-1547846 
+           meo-hay/huong-dan-cach-chinh-may-lanh-lg-mat-nhat-cho-mua-nong-1547799
+           meo-hay/nen-dot-nen-thom-trong-phong-may-lanh-khong-1553539
+           meo-hay/hop-che-ong-dong-may-lanh-la-gi-co-nen-su-dung-1553529" 
+           meo-hay/nguyen-nhan-va-cach-khac-phuc-dieu-hoa-daikin-bi-loi-f3-1553447" 
+           meo-hay/tim-hieu-tat-tan-tat-ve-che-do-x-fan-cua-may-lanh-gree-1552859
+           meo-hay/tim-hieu-may-lanh-co-loc-khong-khi-1551730
+           meo-hay/tim-hieu-may-lanh-khong-cuc-nong-1551599
+           meo-hay/huong-dan-cach-di-ong-dong-may-lanh-am-tuong-1551598
+           meo-hay/che-do-clean-cua-may-lanh-che-do-tu-dong-lam-sach-1551466
+           meo-hay/nguyen-nhan-va-cach-xu-ly-loi-f95-may-lanh-panasonic-1550964
+           meo-hay/may-lanh-trung-tam-la-gi-uu-va-nhuoc-diem-cua-may-1547796
+           meo-hay/cach-reset-may-lanh-panasonic-don-gian-1550405
+           meo-hay/che-do-turbo-trong-may-lanh-la-gi-mach-ban-cach-su-dung-1550227
+           meo-hay/mach-ban-cach-lap-may-lanh-cho-2-phong-ngu-1550225
+           meo-hay/cach-chinh-may-lanh-mitsubishi-electric-1549925
+           meo-hay/loi-h16-may-lanh-panasonic-la-loi-gi-cach-xu-ly-1549920
+           meo-hay/may-lanh-1-ngua-la-gi-co-gi-khac-biet-voi-may-lanh-2-ngua-1547620
+           meo-hay/ve-sinh-may-lanh-tu-dung-multi-gia-re-qua-chi-tu-1545127
+           meo-hay/ve-sinh-may-lanh-am-tran-gia-soc-chi-249-000d-ap-1545124
+           meo-hay/ve-sinh-may-lanh-treo-tuong-gia-soc-chi-99-000d-1545112
+           meo-hay/bao-duong-may-loc-nuoc-gia-chi-130-000d-1514266
+           meo-hay/chuong-trinh-tich-diem-danh-cho-khach-hang-than-1552248
+           meo-hay/tai-sao-dieu-hoa-khong-mat-chi-co-gio-nguyen-nhan-1550584
+           meo-hay/huong-dan-cach-bat-tat-may-lanh-cac-thuong-hieu-1550232
+           meo-hay/che-do-sleep-may-lanh-la-gi-su-dung-nhu-the-nao-1550159
+           meo-hay/huong-dan-cach-reset-may-lanh-samsung-1549929
+           meo-hay/che-do-hi-power-trong-may-lanh-la-gi-1549872
+           meo-hay/ma-loi-may-lanh-tcl-nguyen-nhan-va-cach-khac-phuc-1549761
+           meo-hay/tong-hop-ma-loi-may-lanh-aqua-va-cach-khac-phuc-1549215
+           meo-hay/may-lanh-inverter-la-gi-diem-khac-biet-voi-may-lanh-thong-thuong-1549087
+           meo-hay/huong-dan-chi-tiet-cach-chinh-may-lanh-aqua-don-gian-1549003
+           meo-hay/mach-ban-8-cach-su-dung-may-lanh-tiet-kiem-dien-1551153
+           meo-hay/cach-khac-phuc-may-lanh-electrolux-bao-loi-e3-1550074
+           meo-hay/khac-phuc-may-lanh-nhay-den-xanh-lien-tuc-hieu-qua-1549799
+           meo-hay/may-lanh-khong-chay-va-cach-khac-phuc-1549683
+           meo-hay/nguyen-nhan-va-meo-khac-phuc-khi-remote-may-lanh-lg-bi-loi-1549543
+           meo-hay/huong-dan-chi-tiet-cach-thay-pin-remote-may-lanh-toshiba-1548832
+           meo-hay/nguyen-nhan-va-cach-khac-phuc-den-may-lanh-nhap-nhay-1548691 
+           meo-hay/may-lanh-lg-bao-loi-ch38-nguyen-nhan-va-cach-khac-phuc-1548636 
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-midea-va-cach-khac-phuc-1548603 
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-casper-va-cach-khac-phuc-1548463 
+           meo-hay/may-lanh-beko-bao-loi-p0-nguyen-nhan-va-cach-khac-phuc-1549036
+           meo-hay/cach-chinh-may-lanh-casper-chi-tiet-de-hieu-nhat-1548001
+           meo-hay/huong-dan-cach-su-dung-remote-may-lanh-panasonic-1547481
+           meo-hay/may-lanh-keu-tit-tit-lien-tuc-la-bi-gi-1547476
+           meo-hay/cach-khac-phuc-may-lanh-samsung-bao-loi-cf-trong-1547414
+           meo-hay/huong-dan-cach-chinh-may-lanh-bang-remote-1547356
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-panasonic-inverter-1546709
+           meo-hay/huong-dan-cach-tat-hen-gio-may-lanh-toshiba-1546579
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-lg-day-du-moi-nhat-1546511
+           meo-hay/mach-ban-cac-cach-su-dung-may-lanh-tiet-kiem-dien-1546296
+           meo-hay/tai-sao-phai-ve-sinh-may-lanh-dinh-ky-tan-suat-ve-1548094
+           meo-hay/huong-dan-cach-chinh-may-lanh-cho-lanh-1547494
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-toshiba-day-du-moi-1546707
+           meo-hay/che-do-eco-may-lanh-sharp-co-thuc-su-tiet-kiem-1546653
+           meo-hay/cach-khac-phuc-may-lanh-khong-nhan-tin-hieu-tu-remote-1546537
+           meo-hay/nguyen-nhan-may-lanh-chay-nuoc-va-cach-khac-phuc-1546454
+           meo-hay/cach-khac-phuc-khi-cuc-nong-may-lanh-keu-to-1546249
+           meo-hay/nguyen-nhan-cuc-nong-may-lanh-chay-nuoc-1546126
+           meo-hay/cach-nhan-biet-va-khac-phuc-hieu-qua-khi-may-lanh-bi-xi-ga-1542615
+           meo-hay/tai-sao-remote-may-lanh-bi-loi-cach-khac-phuc-1542041
+           meo-hay/vi-sao-may-lanh-chay-mot-luc-roi-tat-roi-chay-lai-1547856
+           meo-hay/huong-dan-cach-su-dung-remote-may-lanh-lg-day-du-1547576
+           meo-hay/nguyen-nhan-va-cach-khac-phuc-may-lanh-reetech-bao-loi-e4-1547495
+           meo-hay/bang-ma-loi-may-lanh-lg-inverter-chi-tiet-1547368
+           meo-hay/huong-dan-cach-tinh-dien-nang-tieu-thu-cua-may-1547329
+           meo-hay/Cac-cach-mo-may-lanh-khong-can-remote-de-thuc-hien-1547315
+           meo-hay/nguyen-nhan-may-lanh-keu-to-va-cach-khac-phuc-1547236
+           meo-hay/chi-tiet-bang-tong-hop-ma-loi-may-lanh-electrolux-1546630
+           meo-hay/huong-dan-cach-bat-che-do-khu-mui-cua-may-lanh-1546394
+           meo-hay/cach-khoa-ga-may-lanh-an-toan-hieu-qua-tai-nha-1546209
+           meo-hay/may-lanh-2-chieu-la-gi-danh-gia-uu-nhuoc-diem-1548752
+           meo-hay/tai-sao-phong-may-lanh-co-nhieu-bui-cach-han-che-bui-hieu-qua-1547678
+           meo-hay/cach-su-dung-may-lanh-giup-tang-tuoi-tho-1547488
+           meo-hay/bang-ma-loi-may-lanh-samsung-chi-tiet-cap-nhat-1547405
+           meo-hay/tai-sao-may-lanh-khong-lanh-chi-quat-cach-khac-phuc-1547031
+           meo-hay/cau-tao-va-nguyen-ly-hoat-dong-cua-may-lanh-1546857
+           meo-hay/huong-dan-ban-cach-hen-gio-may-lanh-daikin-1546560
+           meo-hay/may-lanh-khong-lanh-nguyen-nhan-cach-khac-phuc-1546263
+           meo-hay/lap-dat-cuc-nong-may-lanh-de-ngoai-troi-co-sao-khong-1545482
+           meo-hay/canh-bao-gia-mao-website-dich-vu-tan-tam-1431715
+           meo-hay/may-lanh-co-mui-hoi-nguyen-nhan-va-meo-khac-phuc-1547730
+           meo-hay/huong-dan-cach-chinh-may-lanh-sharp-chi-tiet-nhat-1547677
+           meo-hay/cach-xu-ly-may-lanh-panasonic-chop-den-timer-de-1547632
+           meo-hay/cach-thao-mat-na-may-lanh-panasonic-sieu-don-gian-1546782
+           meo-hay/huong-dan-cach-su-dung-remote-may-lanh-toshiba-1546610
+           meo-hay/huong-dan-cach-thao-lap-may-lanh-tai-nha-an-toan-1546558
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-toshiba-inverter-1546247
+           meo-hay/tai-sao-may-lanh-bi-chop-den-do-nguyen-nhan-va-cach-khac-phuc-1546237
+           meo-hay/ngu-may-lanh-bi-tich-dien-co-nguy-hiem-khong-1543678
+           meo-hay/may-lanh-chay-nuoc-cach-khac-phuc-1543648
+           meo-hay/may-lanh-toshiba-bao-loi-04-la-loi-gi-cach-khac-phuc-1547752
+           meo-hay/may-lanh-aqua-bao-loi-e7-nguyen-nhan-cach-khac-phuc-1547748
+           meo-hay/cach-sua-loi-h19-may-lanh-panasonic-nhanh-chong-1547680
+           meo-hay/cuc-nong-may-lanh-khong-chay-nguyen-nhan-va-meo-1547621
+           meo-hay/nguyen-nhan-va-cach-khac-phuc-hien-tuong-may-lanh-keu-re-re-1547473
+           meo-hay/cach-chinh-may-lanh-panasonic-mat-nhat-nhung-van-tiet-kiem-dien-1546673 
+           meo-hay/huong-dan-chi-tiet-cach-tat-hen-gio-may-lanh-panasonic-1546595 
+           meo-hay/cach-xu-ly-khi-remote-may-lanh-khong-hien-thi-nhiet-do-1546519
+           meo-hay/nguyen-nhan-may-lanh-tu-tat-cach-khac-phuc-hieu-1546300 
+           meo-hay/cong-dung-cua-cac-che-do-may-lanh-la-gi-va-cach-su-dung-1546046
+           meo-hay/may-lanh-electrolux-bao-loi-e1-la-gi-va-cach-sua-tai-nha-1547387
+           meo-hay/sua-loi-h11-may-lanh-panasonic-hieu-qua-sau-vai-phut-1547280
+           meo-hay/giai-ma-cac-ky-hieu-tren-remote-may-lanh-giup-ban-de-su-dung-1547005
+           meo-hay/huong-dan-cach-hen-gio-may-lanh-lg-don-gian-1546631
+           meo-hay/bang-tong-hop-ma-loi-may-lanh-daikin-cap-nhat-moi-1546622
+           meo-hay/huong-dan-cach-tat-hen-gio-may-lanh-sharp-1546416
+           meo-hay/khuyen-mai-gia-re-qua-ve-sinh-may-lanh-treo-tuong-1545306
+           meo-hay/bao-duong-may-loc-nuoc-gia-soc-chi-tu-130-000d-1544103
+           meo-hay/meo-khu-mui-may-lanh-cuc-ky-hieu-qua-de-thuc-hien-1542654
+           meo-hay/ve-sinh-may-lanh-treo-tuong-gia-soc-chi-tu-99-1542096
+           meo-hay/tai-sao-ngu-may-lanh-bi-dau-hong-cach-dam-bao-suc-1542802
+           meo-hay/nguyen-nhan-va-cach-khac-phuc-khi-may-lanh-bi-dong-tuyet-1542757
+           meo-hay/ve-sinh-may-lanh-am-tran-tu-dung-multi-gia-re-qua-1536031
+           meo-hay/ve-sinh-may-lanh-treo-tuong-gia-re-qua-chi-tu--1536030
+           meo-hay/ve-sinh-may-lanh-tu-2hp-5hp-bao-sach-bao-gas-g-1514265
+           meo-hay/ve-sinh-may-lanh-treo-tuong-1-1-5hp-bao-sach-bao-1514264
+           meo-hay/bao-duong-may-loc-nuoc-gia-chi-tu-135-000d-1481264
+           meo-hay/khuyen-mai-hot-ve-sinh-may-lanh-gia-chi-tu-180-00-1481263
+           meo-hay/khuyen-mai-bao-duong-may-loc-nuoc-thang-1472179
+           meo-hay/dich-vu-ve-sinh-may-lanh-chi-tu-180000-dong-tang-kem-kiem-tra-mien-phi-may-loc-nuoc-1451101
+           meo-hay/gioi-thieu-dich-vu-cung-cap-va-lap-dat-may-lanh-am-1472997
+           meo-hay/gioi-thieu-ve-trung-tam-bao-hanh-topcare-1472996
+           meo-hay/khuyen-mai-dich-vu-ve-sinh-may-lanh-1472178
+           meo-hay/khuyen-mai-dich-vu-ve-sinh-may-lanh-1458755
+           meo-hay/dich-vu-tan-tam-kiem-tra-ve-sinh-may-loc-nuoc-ta-1451285
+           meo-hay/dich-vu-tan-tam-sua-dien-nuoc-dan-dung-gia-soc-ch-1450819
+           meo-hay/ve-sinh-may-lanh-cam-ket-bao-sach-bao-ga-1450818
+           meo-hay/ly-do-nen-mua-may-lanh-am-tran-tai-tan-tam-1441937
+           meo-hay/ra-mat-app-tho-tan-tam-khuyen-mai-cuc-soc-1436107
+           meo-hay/ra-mat-app-tho-tan-tam-dat-lich-lap-dat-sua-chua-1436104
+           meo-hay/khuyen-mai-tan-tam-giam-chi-phi-ve-sinh-may-lanh-1433607
+           meo-hay/huong-dan-thay-van-cap-nuoc-may-giat-long-dung-1394162
+           meo-hay/huong-dan-thay-board-may-giat-long-dung-aqua-1394161
+           meo-hay/huong-dan-gan-ron-may-giat-cua-ngang-1394159
+           meo-hay/huong-dan-sac-ga-may-lanh-1394155
+           meo-hay/cach-su-dung-che-do-ve-sinh-long-giat-tren-may-gia-1372227
+           meo-hay/dong-nap-ngay-sau-khi-dung-co-nen-khong-1372225
+           meo-hay/loi-ich-cua-chan-de-may-giat-1372222
+           meo-hay/cach-lap-day-tiep-dien-cho-may-giat-don-gian-nhat-1372221
+           meo-hay/cach-ve-sinh-may-giat-cua-truoc-don-gian-ngay-ta-1372219
+           meo-hay/cach-khac-phuc-dieu-hoa-bi-nhiem-dien-tu-1372216
+           meo-hay/huong-dan-nhiet-do-f-sang-c-tren-dieu-hoa-1372215
+           meo-hay/tong-hop-kinh-nghiem-lap-dat-may-lanh-khi-moi-mu-1372213
+           meo-hay/may-lanh-dieu-hoa-het-gas-ma-ban-khong-biet-khi--1372210
+           meo-hay/6-buoc-ve-sinh-cuc-nong-cuc-lanh-may-lanh-chi-tie-1372209
+           meo-hay/7-sai-lam-thuong-mac-phai-khi-ve-sinh-man-hinh-tiv-1372084
+           meo-hay/tu-lanh-khong-dong-da-nguyen-nhan-va-cach-khac-ph-1369982
+           meo-hay/cach-chon-mua-cap-hdmi-cho-tivi-nhu-the-nao--1369981
+           meo-hay/gia-do-tivi-treo-tuong-co-nhung-loai-nao-loai-nao-1369980
+           meo-hay/5-cach-su-dung-tivi-don-gian-giup-tang-tuoi-tho-ch-1369978';
+
+        $link = explode(PHP_EOL, $link);
+
+        $now  = Carbon::now();
+
+        foreach($link as $value){
+
+            $link_run = 'https://www.dichvutantam.com/'.trim($value);
+
+            $file_headers = @get_headers($link_run);
+
+            if($file_headers[0] == 'HTTP/1.1 200 OK'){
+
+                $html = file_get_html($link_run);
+
+                $title = strip_tags($html->find('.detail h1', 0));
+
+                $content = html_entity_decode($html->find('.detail .content',0));
+
+
+                $meta_title = $title;
+
+                $meta_content = $title; 
+
+                $meta_model = new metaSeo();
+
+                $meta_model->meta_title =$meta_title;
+
+                $meta_model->meta_content =$meta_content;
+
+                $meta_model->meta_og_content =$meta_content;
+
+                $meta_model->meta_og_title =$meta_title;
+
+                $meta_model->meta_key_words =$meta_title;
+
+                $meta_model->save();
+
+                $data = ['title' => $title, 'content'=>$content,  'date_post'=>$now, 'category'=>11, 'shortcontent'=>$title, 'id_user'=>1, 'link'=> $this->convertSlug($title), 'active'=>0, 'Meta_id'=>$meta_model['id'], 'featured'=>0, 'hight_light'=>0, 'views'=>0, 'created_at'=>$now, 'updated_at'=>$now];
+
+                $update  = DB::table('posts1')->insert($data);
+            }
+
+        }
+
+        echo "thanh cong";
+    }
+
+
+    public function PutFileImageToSV()
+    {
+        
+        for ($i=282; $i < 364; $i++) { 
+
+            $post = DB::table('posts1')->where('id', $i)->first();
+
+            if($post->crawl_image==''){
+
+                $this->crawlImagesWeb($post->content, $post->id);
+            }
+           
+            
+        }
+
+        echo "thành công";
+    }
+
+    public function crawlImagesWeb($content, $id)
+    {
+        preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $content, $matches);
+
+        $arr_change = [];
+
+        $time = time();
+
+        $regexp = '/^[a-zA-Z0-9][a-zA-Z0-9\-\_]+[a-zA-Z0-9]$/';
+
+    
+        if(isset($matches[1])){
+
+            foreach($matches[1] as $value){
+            
+                // nếu link return 200
+
+                $file_headers  = @get_headers($value);
+
+                if($file_headers[0] == 'HTTP/1.1 200 OK'){
+
+                    $img  = '/uploads/news/'.$time.'_'.basename($value);
+
+                    // đẩy file lên server
+
+                    file_put_contents(public_path().$img, file_get_contents($value));
+
+                    $content  = str_replace($value, env('APP_URL').$img, $content);
+
+                
+                }
+                else{
+                    echo $value;
+
+                    
+                }
+                
+            }
+        }
+
+        DB::table('posts1')->where('id', $id)->update(['content'=>$content, 'crawl_image'=>1]);
+
+    }
 
     public function updateLinkCategory()
     {
