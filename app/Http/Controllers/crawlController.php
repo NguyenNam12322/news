@@ -286,6 +286,25 @@ class crawlController extends Controller
         echo "thanh cong";
     }
 
+
+    public function convertDomainEnv()
+    {
+        $replace = 'http://localhost';
+        for ($i=282; $i < 364; $i++) { 
+
+            $post = DB::table('posts1')->where('id', $i)->first();
+
+            $content  = str_replace($replace, env('APP_URL'), $post->content);
+
+            DB::table('posts1')->where('id', $id)->update(['content'=>$content]);
+            
+           
+        }
+
+        echo "thanh cong";
+
+    }
+
     public function checkImagePost()
     {
         for ($i=255; $i < 364; $i++) { 
