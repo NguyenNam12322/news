@@ -310,7 +310,7 @@ class crawlController extends Controller
     public function PutFileImageToSV()
     {
         
-        for ($i=282; $i < 364; $i++) { 
+        for ($i=255; $i < 364; $i++) { 
 
             $post = DB::table('posts1')->where('id', $i)->first();
 
