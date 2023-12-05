@@ -286,6 +286,26 @@ class crawlController extends Controller
         echo "thanh cong";
     }
 
+    public function checkImagePost()
+    {
+        for ($i=255; $i < 364; $i++) { 
+
+            $post = DB::table('posts1')->where('id', $i)->first();
+
+            preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $post->content, $matches);
+
+            if(isset($matches[1])){
+
+                foreach($matches[1] as $value){
+
+                    DB::table('check_image_crawl')->insert(['id_post'=>$i, 'image'=>$value]);
+                }    
+                
+            }    
+            
+        }
+    }
+
 
     public function PutFileImageToSV()
     {
@@ -338,8 +358,6 @@ class crawlController extends Controller
                 }
                 else{
                     echo $value;
-
-                    
                 }
                 
             }
@@ -658,8 +676,10 @@ class crawlController extends Controller
 
         echo "thanh cong";
         
-
     }
+
+
+    
 
     public function echo(){
          $banners = banners::where('option','=',0)->take(6)->OrderBy('stt', 'asc')->where('active','=',1)->select('title', 'image', 'title', 'link')->get();
