@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 sidebar" style="display: inherit;">
+                <div class="col-12 col-lg-12 sidebar" style="display: inherit;">
                     <div class="sidebar-sticky-2">
                         <div class="news-group  mt-4" style="display:none;">
                             <div class="news-group">
