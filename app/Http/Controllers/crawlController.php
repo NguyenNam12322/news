@@ -296,7 +296,7 @@ class crawlController extends Controller
 
             $content  = str_replace($replace, env('APP_URL'), $post->content);
 
-            DB::table('posts1')->where('id', $id)->update(['content'=>$content]);
+            DB::table('posts1')->where('id', $i)->update(['content'=>$content]);
             
            
         }
