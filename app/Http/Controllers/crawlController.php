@@ -28,10 +28,19 @@ use App\products1;
 
 use \Carbon\Carbon;
 
+use Illuminate\Support\Facades\Redis;
+
 
 class crawlController extends Controller
 {
 
+
+    public function testRedis()
+    {
+        Redis::set('name', 'Taylor');
+        $name = Redis::get('name');
+        dd($name); // Taylor
+    }
     public function convertSlug($title)
     {
        
