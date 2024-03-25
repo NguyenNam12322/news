@@ -55,6 +55,12 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('hot-list', 'hotController@index')->name('host-list');
 
+
+    Route::get('show-list-post', 'postController@list')->name('list-post');
+    
+
+
+
     Route::post('update-order-hot','hotController@hotOrderProduct')->name('order-hot');
 
     Route::get('seachtitlePost', 'postController@searchTitle')->name('searTitlePost');

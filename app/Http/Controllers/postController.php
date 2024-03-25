@@ -129,6 +129,19 @@ class postController extends AppBaseController
         return view('posts.show')->with('post', $post);
     }
 
+    public function list()
+    {
+
+        $data = DB::table('posts1')->select('title')->where('active', 0)->where('id_user', 1)->get();
+
+        foreach ($data as $key => $value) {
+
+            echo $value->title.'<br>';
+        }
+
+
+    }
+
     public function findPostByValue(Request $request)
     {
         $search = $request->searchPost;
