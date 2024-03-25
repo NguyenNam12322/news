@@ -134,9 +134,13 @@ class postController extends AppBaseController
 
         $data = DB::table('posts1')->select('title')->where('active', 0)->where('id_user', 1)->get();
 
+        $dem = 0;
+
         foreach ($data as $key => $value) {
 
-            echo $value->title.'<br>';
+            $dem++;
+
+            echo $dem.', '. $value->title.'<br>';
         }
 
 
