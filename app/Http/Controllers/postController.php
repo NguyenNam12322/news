@@ -104,7 +104,7 @@ class postController extends AppBaseController
 
         // return redirect(route('posts.edit', $post->id));
 
-        return->back();
+        return redirect()->back();
 
         // Flash::success('Post saved successfully.');
 
@@ -242,7 +242,7 @@ class postController extends AppBaseController
         }
         else{
 
-            return->back();
+            return redirect()->back();
         }    
     }
 
