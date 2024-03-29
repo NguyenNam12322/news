@@ -102,7 +102,9 @@ class postController extends AppBaseController
 
         $post = $this->postRepository->create($input);
 
-        return redirect(route('posts.edit', $post->id));
+        // return redirect(route('posts.edit', $post->id));
+
+        return->back();
 
         // Flash::success('Post saved successfully.');
 
@@ -240,7 +242,7 @@ class postController extends AppBaseController
         }
         else{
 
-            return redirect(route('posts.index'));
+            return->back();
         }    
     }
 
